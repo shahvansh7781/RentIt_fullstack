@@ -1,13 +1,13 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import car1 from "file:///C:/Users/SVI/Downloads/Temp-1920x850%20(2).png";
-import car2 from "file:///C:/Users/SVI/Downloads/car2.png";
-import car3 from "file:///C:/Users/SVI/Downloads/fcar3.png";
+// import car1 from "file:///C:/Users/SVI/Downloads/Temp-1920x850%20(2).png";
+// import car2 from "file:///C:/Users/SVI/Downloads/car2.png";
+// import car3 from "file:///C:/Users/SVI/Downloads/fcar3.png";
 
 const Simpleslider = () => {
   return (
     <>
-      <Carousel style={{ backgroundColor: "#000000" }}>
+      {/* <Carousel style={{ backgroundColor: "#000000" }}>
         <Carousel.Item interval={1000}>
           <img className="d-block w-100" src={car1} alt="First slide" />
 
@@ -109,7 +109,7 @@ const Simpleslider = () => {
             </button>
           </Carousel.Caption>
         </Carousel.Item>
-      </Carousel>
+      </Carousel> */}
     </>
   );
 };
