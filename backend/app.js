@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const regRoute = require("./routes/userRoutes");
 const carRoute = require("./routes/carRoutes");
+const bookRoute = require("./routes/bookingRoutes");
 const connectDB = require("./config/database");
 const errorHandler = require("./middleware/error");
 const session = require("express-session");
@@ -44,6 +45,7 @@ pass();
 
 app.use("/myapp", regRoute);
 app.use("/myapp", carRoute);
+app.use("/myapp", bookRoute);
 
 //Middleware for errors
 app.use(errorHandler);

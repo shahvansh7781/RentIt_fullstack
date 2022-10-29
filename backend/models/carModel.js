@@ -14,6 +14,20 @@ const carSchema = new mongoose.Schema({
     maxLength: [5, "Rent cannot exceed 5 characters"],
     required: [true, "Car Rent cannot be empty!"],
   },
+  bookedSlot: 
+    {
+      from: {
+        type: String,
+      },
+      to: {
+        type: String,
+      },
+      bookingId:{
+        type:mongoose.Schema.ObjectId,
+        ref:"Booking",
+        reuired:true
+      }
+    },
   featured: {
     type: Boolean,
     default: false,
@@ -40,11 +54,6 @@ const carSchema = new mongoose.Schema({
   model: {
     type: String,
     required: [true, "Car Model cannot be empty!"],
-  },
-  stock: {
-    type: Number,
-    default: 1,
-    maxLength: [4, "Stock can't exceed 4"],
   },
   features: {
     colour: {
@@ -91,35 +100,6 @@ const carSchema = new mongoose.Schema({
       enum: ["Yes", "No"],
     },
   },
-  rating: {
-    type: Number,
-    default: 0,
-  },
-  noOfReviews: {
-    type: Number,
-    default: 0,
-  },
-  reviews: [
-    {
-      user: {
-        type: mongoose.Schema.ObjectId,
-        ref: "User",
-        required: true,
-      },
-      name: {
-        type: String,
-        required: true,
-      },
-      rating: {
-        type: Number,
-        required: true,
-      },
-      feedback: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
