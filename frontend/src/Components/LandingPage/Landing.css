@@ -1,0 +1,38 @@
+.main-content {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 7.3rem;
+}
+.inner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.inner-content h1 {
+  font-size: 3.2vmax;
+  margin: 0;
+}
+.inner-content p {
+  font-size: 1vmax;
+}
+.mylink1 {
+  text-decoration: none;
+  font-size: 1.4vmax;
+  background: #03a8b0;
+  padding: 1.2vmax 2.4vmax;
+  border-radius: 27px;
+  color: white;
+  width: 15vmax;
+  text-align: center;
+}
+.side-img {
+  width: 31vmax;
+  height: 31vmax;
+}
+.all-content {
+  background-color: #222831;
+  color: white;
+  height: 100vh;
+}

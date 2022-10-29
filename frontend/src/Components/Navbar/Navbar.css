@@ -1,0 +1,26 @@
+ul{
+    display: flex;
+    gap: 4vmax;
+    justify-content: center;
+    align-items: center;
+}
+ul > li{
+    list-style: none;
+}
+.nav-links{
+    text-decoration: none;
+    font-size: 1vmax;
+    color: white;
+}
+.nav-btn{
+    text-decoration: none;
+    font-size: 1vmax;
+    background: #03A8B0;
+    padding: 0.7vmax 2vmax;
+    border-radius: 14px;
+    color: white;
+}
+.logo-img{
+    width: 9vmax;
+    height: 7vmax;
+}
