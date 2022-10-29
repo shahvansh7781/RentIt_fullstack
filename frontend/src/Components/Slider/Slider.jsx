@@ -1,8 +1,8 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import car1 from "file:///C:/Users/SVI/Downloads/Temp-1920x850%20(2).png";
-import car2 from "file:///C:/Users/SVI/Downloads/car2.png";
-import car3 from "file:///C:/Users/SVI/Downloads/fcar3.png";
+import car1 from "../../images/car1.png";
+import car2 from "../../images/car2.png";
+import car3 from "../../images/car3.png";
 
 const Simpleslider = () => {
   return (
