@@ -23,7 +23,7 @@ process.on("uncaughtException", (err) => {
 });
 
 // Config
-dotenv.config({ path: "config/config.env" });
+dotenv.config({ path: "config.env" });
 
 // Sessions and Cookies
 app.use(
