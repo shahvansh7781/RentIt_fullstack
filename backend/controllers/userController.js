@@ -80,6 +80,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
         res.status(200).json({
           success: true,
           message: "Login Successful",
+          user:req.user
         });
       });
     }

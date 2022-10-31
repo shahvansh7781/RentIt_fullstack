@@ -4,24 +4,26 @@ import { target } from "react-icons-kit/feather/target";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import "./Main.css";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // import image-1 logo or jpg
 // import image-2
 
 // how to animate
-const leftSideVariants = {
-  //it is a self object
-  hidden: {
-    opacity: 0,
-    x: -700, //left 700px
-  },
+// const leftSideVariants = {
+//   //it is a self object
+//   hidden: {
+//     opacity: 0,
+//     x: -700, //left 700px
+//   },
 
-  visible: {
-    opacity: 1,
-    x: 0, //orignal position
-    transition: { delay: 0.15, duration: 0.7, type: "tween" },
-  },
-};
+//   visible: {
+//     opacity: 1,
+//     x: 0, //orignal position
+//     transition: { delay: 0.15, duration: 0.7, type: "tween" },
+//   },
+// };
 
 const rightSideVariants = {
   //its self object
@@ -37,14 +39,14 @@ const rightSideVariants = {
   },
 };
 
-const toggleButtonVariants = {
-  hover: {
-    scale: 0.9,
-    transition: {
-      yoyo: Infinity, // toggle type
-    },
-  },
-};
+// const toggleButtonVariants = {
+//   hover: {
+//     scale: 0.9,
+//     transition: {
+//       yoyo: Infinity, // toggle type
+//     },
+//   },
+// };
 
 const otherButtonVariants = {
   hover: {
@@ -117,7 +119,15 @@ export const MainContainer = ({
   //     setPwd('');
   //     setSuccess(true);
   // }
-
+  const dispatch = useDispatch();
+  const [loginDetails, setloginDetails] = useState({
+    loginEmail: "",
+    loginPassword: "",
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // dispatch(login(loginDetails.loginEmail,loginDetails.loginPassword));
+  };
   return (
     <div className="main-box">
       <motion.div
@@ -183,9 +193,7 @@ export const MainContainer = ({
                         <h1>Sign In</h1> */}
 
             <h1>Sign In</h1>
-            <form autoComplete="off">
-              {/*onSubmit={handleSubmit}*/}
-
+            <form autoComplete="off" onSubmit={handleSubmit}>
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-envelope"></i>
@@ -195,9 +203,14 @@ export const MainContainer = ({
                   placeholder="username"
                   id="login-username"
                   // ref={userRef}
-                  // autoComplete="off"
-                  // onChange={(e)=>setUser(e.target.value)}
-                  // value={user}
+                  autoComplete="on"
+                  onChange={(e) =>
+                    setloginDetails({
+                      ...loginDetails,
+                      loginEmail: e.target.value,
+                    })
+                  }
+                  value={loginDetails.loginEmail}
                   required
                 />
               </div>
@@ -210,15 +223,20 @@ export const MainContainer = ({
                   type={"password"}
                   placeholder="password"
                   id="login-password"
-                  autoComplete="off"
-                  // onChange={(e)=>setPwd(e.target.value)}
-                  // value={pwd}
+                  autoComplete="on"
+                  onChange={(e) => {
+                    setloginDetails({
+                      ...loginDetails,
+                      loginPassword: e.target.value,
+                    });
+                  }}
+                  value={loginDetails.loginPassword}
                   required
                 />
               </div>
               <br></br>
               <motion.button
-                type="button"
+                type="submit"
                 className="signin-button"
                 variants={otherButtonVariants}
                 whileHover="hover"
@@ -231,17 +249,17 @@ export const MainContainer = ({
             <p>Or Sign In Using</p>
             {/* <h1>Sign In Using</h1> */}
             <div className="signin-icons">
-              <a href="#" className="icon facebook">
+              <Link to="" className="icon facebook">
                 <i className="fab fa-facebook-f"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon google">
+              <Link href="#" className="icon google">
                 <i className="fab fa-google"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon twitter">
+              <Link href="#" className="icon twitter">
                 <i className="fab fa-twitter"></i>
-              </a>
+              </Link>
             </div>
           </motion.div>
 
@@ -334,17 +352,17 @@ export const MainContainer = ({
 
             <p>Or Sign Up With</p>
             <div className="signin-icons">
-              <a href="#" className="icon facebook">
+              <Link href="#" className="icon facebook">
                 <i className="fab fa-facebook-f"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon google">
+              <Link href="#" className="icon google">
                 <i className="fab fa-google"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon twitter">
+              <Link href="#" className="icon twitter">
                 <i className="fab fa-twitter"></i>
-              </a>
+              </Link>
             </div>
           </motion.div>
         </>
