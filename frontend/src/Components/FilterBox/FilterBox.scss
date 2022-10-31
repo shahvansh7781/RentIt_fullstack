@@ -1,59 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&family=Rubik+Dirt&display=swap");
-$Primary_color: #efeff3;
-$Primary_color-1: #babccf;
-$Primary_color-2: #5e6062;
-$Primary_color-3: #131416;
-$Border_color: #bbc4de;
-$Primary_color-4: #303f4f;
-$Primary_color-6: #485ccb;
+// @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&family=Rubik+Dirt&display=swap");
+// $Primary_color: #efeff3;
+// $Primary_color-1: #babccf;
+// $Primary_color-2: #5e6062;
+// $Primary_color-3: #131416;
+// $Border_color: #bbc4de;
+// $Primary_color-4: #303f4f;
+// $Primary_color-6: #485ccb;
 
-@mixin flexCenter($drection, $justifyContent) {
-  display: flex;
-  flex-direction: $drection;
-  justify-content: $justifyContent;
-  align-items: center;
-}
+// @mixin flexCenter($drection, $justifyContent) {
+//   display: flex;
+//   flex-direction: $drection;
+//   justify-content: $justifyContent;
+//   align-items: center;
+// }
 
 
-.FilterBox {
-    background-color: white;
-    width: 95%;
-    height: 98%;
-    padding: 5px;
-    margin: 7px;
-    border: none;
-    border-radius: 7px;
-    grid-area: FilterBox;
-    overflow-y: auto;
+// .FilterBox {
+//     background-color: white;
+//     width: 95%;
+//     height: 98%;
+//     padding: 5px;
+//     margin: 7px;
+//     border: none;
+//     border-radius: 7px;
+//     grid-area: FilterBox;
+//     overflow-y: auto;
 
-    .Heading {
-        color:#485ccb;
-        font-weight: 700;
-        padding: 10px;
-        @include flexCenter(row,center );
-        font-size: 25px;
-        border-bottom:2px solid $Border_color;
-    }
+//     .Heading {
+//         color:#485ccb;
+//         font-weight: 700;
+//         padding: 10px;
+//         @include flexCenter(row,center );
+//         font-size: 25px;
+//         border-bottom:2px solid $Border_color;
+//     }
 
-    .CheckBox-group {
-        .SubHeading {
-            color:$Primary_color-4;
-            font-weight: 500;
-            margin: 0px 10px;
-            font-size: 18px;
-            border-bottom:2px solid $Border_color; 
-        }
+//     .CheckBox-group {
+//         .SubHeading {
+//             color:$Primary_color-4;
+//             font-weight: 500;
+//             margin: 0px 10px;
+//             font-size: 18px;
+//             border-bottom:2px solid $Border_color; 
+//         }
 
-        .CheckBox {
+//         .CheckBox {
 
-            @include flexCenter(row,start);
-            padding: 7px 0px;
-            margin-left: 32px;
-            label {
-                font-size: 25px;
-                color:$Primary_color-3;
-            }
-        }
-    }
+//             @include flexCenter(row,start);
+//             padding: 7px 0px;
+//             margin-left: 32px;
+//             label {
+//                 font-size: 25px;
+//                 color:$Primary_color-3;
+//             }
+//         }
+//     }
 
-}
+// }

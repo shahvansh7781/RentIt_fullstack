@@ -5,45 +5,40 @@ import Landing from "./Components/LandingPage/Landing";
 import Home from "./Components/Home/Home";
 import Cards from "./Components/Cars/Cards";
 import { MainContainer } from "./Components/Login/MainContainer";
-import {useState} from 'react'
-
+import { useState } from "react";
 
 function App() {
-
-
-  const[container,setContainer]=useState('logined');
-  const[logoClass,setLogoClass]=useState('logo blue');
-  const changeContainerState=()=>{
-
-    if(container==='logined'){
-
-       setContainer('registered');
-       setLogoClass('logo');
+  const [container, setContainer] = useState("logined");
+  const [logoClass, setLogoClass] = useState("logo blue");
+  const changeContainerState = () => {
+    if (container === "logined") {
+      setContainer("registered");
+      setLogoClass("logo");
+    } else if (container === "registered") {
+      setContainer("logined");
+      setLogoClass("logo blue");
     }
-    else if(container==='registered'){
-      setContainer('logined')
-      setLogoClass('logo blue');
-    }
-
-  }
+  };
   return (
     <>
       {/* <Navbar/> */}
 
-       <Routes>
-
-      
+      <Routes>
         <Route exact path="/" element={<Landing />}></Route>
         <Route exact path="/home" element={<Home />}></Route>
-        <Route exact path="/cars" element={<Cards/>}></Route>
-        <Route exact path="/login" element={<MainContainer container={container}
-          changeContainerState={changeContainerState}
-          logoClass={logoClass} />}>
-        </Route>
-
-      </Routes> 
-
-
+        <Route exact path="/cars" element={<Cards />}></Route>
+        <Route
+          exact
+          path="/login"
+          element={
+            <MainContainer
+              container={container}
+              changeContainerState={changeContainerState}
+              logoClass={logoClass}
+            />
+          }
+        ></Route>
+      </Routes>
     </>
   );
 }
