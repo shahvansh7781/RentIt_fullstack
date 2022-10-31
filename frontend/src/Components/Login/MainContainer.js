@@ -6,6 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import "./Main.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { login } from "../../Actions/userActions";
 
 // import image-1 logo or jpg
 // import image-2
@@ -126,7 +127,7 @@ export const MainContainer = ({
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(login(loginDetails.loginEmail,loginDetails.loginPassword));
+    dispatch(login(loginDetails.loginEmail,loginDetails.loginPassword));
   };
   return (
     <div className="main-box">
