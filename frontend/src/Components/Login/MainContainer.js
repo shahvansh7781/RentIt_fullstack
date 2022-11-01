@@ -2,11 +2,11 @@ import React from "react";
 import { Icon } from "react-icons-kit";
 import { target } from "react-icons-kit/feather/target";
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import "./Main.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../Actions/userActions";
+import { login, register } from "../../Actions/userActions";
 
 // import image-1 logo or jpg
 // import image-2
@@ -125,9 +125,28 @@ export const MainContainer = ({
     loginEmail: "",
     loginPassword: "",
   });
-  const handleSubmit = (e) => {
+  const handleloginSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(loginDetails.loginEmail,loginDetails.loginPassword));
+    dispatch(login(loginDetails.loginEmail, loginDetails.loginPassword));
+  };
+
+  const [registerDetails, setregisterDetails] = useState({
+    registerName: "",
+    registerEmail: "",
+    registerPassword: "",
+    registerconfirmPassword: "",
+  });
+
+  const handleregisterSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      register(
+        registerDetails.registerName,
+        registerDetails.registerEmail,
+        registerDetails.registerPassword,
+        registerDetails.registerconfirmPassword
+      )
+    );
   };
   return (
     <div className="main-box">
@@ -194,14 +213,14 @@ export const MainContainer = ({
                         <h1>Sign In</h1> */}
 
             <h1>Sign In</h1>
-            <form autoComplete="off" onSubmit={handleSubmit}>
+            <form autoComplete="off" onSubmit={handleloginSubmit}>
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-envelope"></i>
                 </div>
                 <input
                   type={"name"}
-                  placeholder="username"
+                  placeholder="Email"
                   id="login-username"
                   // ref={userRef}
                   autoComplete="on"
@@ -222,7 +241,7 @@ export const MainContainer = ({
                 </div>
                 <input
                   type={"password"}
-                  placeholder="password"
+                  placeholder="Password"
                   id="login-password"
                   autoComplete="on"
                   onChange={(e) => {
@@ -310,38 +329,82 @@ export const MainContainer = ({
           >
             <h1>Registration</h1>
 
-            <form autoComplete="off">
+            <form autoComplete="on" onSubmit={handleregisterSubmit}>
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-user"></i>
                 </div>
-                <input type={"name"} placeholder="username" />
+                <input
+                  type={"name"}
+                  placeholder="Name"
+                  value={registerDetails.registerName}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerName: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
 
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-envelope"></i>
                 </div>
-                <input type={"email"} placeholder="email" />
+                <input
+                  type={"email"}
+                  placeholder="Email"
+                  value={registerDetails.registerEmail}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerEmail: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
 
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-lock"></i>
                 </div>
-                <input type={"password"} placeholder="password" />
+                <input
+                  type={"password"}
+                  placeholder="Password"
+                  value={registerDetails.registerPassword}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerPassword: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
 
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-lock"></i>
                 </div>
-                <input type={"password"} placeholder="confirm password" />
+                <input
+                  type={"password"}
+                  placeholder="Confirm Password"
+                  value={registerDetails.registerconfirmPassword}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerconfirmPassword: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
               <br></br>
 
               <motion.button
-                type="button"
+                type="submit"
                 className="signin-button"
                 variants={otherButtonVariants}
                 whileHover="hover"

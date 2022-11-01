@@ -11,8 +11,32 @@ export const login = (username, password) => async (dispatch) => {
       },
       config
     );
-    dispatch({type:"loginSuccess",payload:data.user})
+    dispatch({ type: "loginSuccess", payload: data.user });
   } catch (error) {
-    dispatch({type:"loginFailure",payload:error.response.data.message})
+    dispatch({ type: "loginFailure", payload: error.message });
   }
 };
+
+export const register =
+  (name, username, password, cpassword) => async (dispatch) => {
+    try {
+      dispatch({ type: "registerRequest" });
+      const config = { headers: { "Content-Type": "application/json" } };
+      const { data } = await axios.post(
+        `/myapp/register`,
+        {
+          name,
+          username,
+          password,
+          cpassword,
+        },
+        config
+      );
+      dispatch({ type: "registerSuccess", payload: data.user });
+    } catch (error) {
+      dispatch({
+        type: "registerFailure",
+        payload: error.response.data.message,
+      });
+    }
+  };
