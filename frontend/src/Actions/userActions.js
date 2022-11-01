@@ -40,3 +40,23 @@ export const register =
       });
     }
   };
+
+export const loadUser = () => async (dispatch) => {
+  try {
+    dispatch({ type: "loaduserRequest" });
+    const { data } = await axios.get("/myapp/me");
+    dispatch({ type: "loaduserSuccess", payload: data.user });
+  } catch (error) {
+    dispatch({ type: "loaduserFailure", payload: error.message });
+  }
+};
+
+export const logout = () => async (dispatch) => {
+  try {
+    dispatch({ type: "logoutRequest" });
+    await axios.get("/myapp/logout");
+    dispatch({ type: "logoutSuccess" });
+  } catch (error) {
+    dispatch({ type: "logoutFailure", payload: error.message });
+  }
+};

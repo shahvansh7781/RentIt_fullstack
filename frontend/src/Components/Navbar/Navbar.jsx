@@ -4,10 +4,15 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./Navbar.css";
 import logo from "../../images/logo.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../Actions/userActions";
 const Navbar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
-  const { user } = useSelector((state) => state.user)
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
   return (
     <>
       {isAuthenticated ? (
@@ -49,7 +54,7 @@ const Navbar = () => {
             >
               <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
               <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+              <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
             </DropdownButton>
           </li>
         </ul>
