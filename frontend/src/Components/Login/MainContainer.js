@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import "./Main.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { login, register } from "../../Actions/userActions";
 
 // import image-1 logo or jpg
@@ -120,7 +121,9 @@ export const MainContainer = ({
   //     setPwd('');
   //     setSuccess(true);
   // }
+  let navigate = useNavigate();
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.user);
   const [loginDetails, setloginDetails] = useState({
     loginEmail: "",
     loginPassword: "",
@@ -129,7 +132,10 @@ export const MainContainer = ({
     e.preventDefault();
     dispatch(login(loginDetails.loginEmail, loginDetails.loginPassword));
   };
-
+  
+  if (isAuthenticated) {
+    navigate("/home");
+  }
   const [registerDetails, setregisterDetails] = useState({
     registerName: "",
     registerEmail: "",

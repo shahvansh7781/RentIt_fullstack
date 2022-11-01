@@ -1,5 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
-const initialState = {};
+const initialState = {
+  isAuthenticated:false,
+  user:null
+};
 
 export const userReducer = createReducer(initialState, {
   loginRequest: (state) => {
