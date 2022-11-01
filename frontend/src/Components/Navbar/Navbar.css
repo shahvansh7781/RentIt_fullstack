@@ -29,3 +29,6 @@ ul > li{
 .nav-links:hover{
     color: white;
 }
+.fa-cog {
+    color: white
+  }

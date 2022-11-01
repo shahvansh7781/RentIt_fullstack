@@ -10,13 +10,6 @@ exports.registerUser = (req, res, next) => {
   const user = new User({
     name: req.body.name,
     username: req.body.username,
-    phone: req.body.phone,
-    gender: req.body.gender,
-    dob: req.body.dob,
-    avatar: {
-      public_id: "sample id",
-      url: "profile url",
-    },
   });
   // if (req.body.password === req.body.cpassword) {
   // const user = await User.create(req.body);
@@ -40,7 +33,7 @@ exports.registerUser = (req, res, next) => {
         passport.authenticate("local")(req, res, function () {
           res.status(201).json({
             success: true,
-            user1,
+            user:user1,
           });
         });
       }
@@ -80,6 +73,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
         res.status(200).json({
           success: true,
           message: "Login Successful",
+          user:req.user
         });
       });
     }

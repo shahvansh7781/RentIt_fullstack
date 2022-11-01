@@ -2,26 +2,30 @@ import React from "react";
 import { Icon } from "react-icons-kit";
 import { target } from "react-icons-kit/feather/target";
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import "./Main.css";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { login, register } from "../../Actions/userActions";
 
 // import image-1 logo or jpg
 // import image-2
 
 // how to animate
-const leftSideVariants = {
-  //it is a self object
-  hidden: {
-    opacity: 0,
-    x: -700, //left 700px
-  },
+// const leftSideVariants = {
+//   //it is a self object
+//   hidden: {
+//     opacity: 0,
+//     x: -700, //left 700px
+//   },
 
-  visible: {
-    opacity: 1,
-    x: 0, //orignal position
-    transition: { delay: 0.15, duration: 0.7, type: "tween" },
-  },
-};
+//   visible: {
+//     opacity: 1,
+//     x: 0, //orignal position
+//     transition: { delay: 0.15, duration: 0.7, type: "tween" },
+//   },
+// };
 
 const rightSideVariants = {
   //its self object
@@ -37,14 +41,14 @@ const rightSideVariants = {
   },
 };
 
-const toggleButtonVariants = {
-  hover: {
-    scale: 0.9,
-    transition: {
-      yoyo: Infinity, // toggle type
-    },
-  },
-};
+// const toggleButtonVariants = {
+//   hover: {
+//     scale: 0.9,
+//     transition: {
+//       yoyo: Infinity, // toggle type
+//     },
+//   },
+// };
 
 const otherButtonVariants = {
   hover: {
@@ -117,7 +121,39 @@ export const MainContainer = ({
   //     setPwd('');
   //     setSuccess(true);
   // }
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.user);
+  const [loginDetails, setloginDetails] = useState({
+    loginEmail: "",
+    loginPassword: "",
+  });
+  const handleloginSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginDetails.loginEmail, loginDetails.loginPassword));
+  };
+  
+  if (isAuthenticated) {
+    navigate("/home");
+  }
+  const [registerDetails, setregisterDetails] = useState({
+    registerName: "",
+    registerEmail: "",
+    registerPassword: "",
+    registerconfirmPassword: "",
+  });
 
+  const handleregisterSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      register(
+        registerDetails.registerName,
+        registerDetails.registerEmail,
+        registerDetails.registerPassword,
+        registerDetails.registerconfirmPassword
+      )
+    );
+  };
   return (
     <div className="main-box">
       <motion.div
@@ -183,21 +219,24 @@ export const MainContainer = ({
                         <h1>Sign In</h1> */}
 
             <h1>Sign In</h1>
-            <form autoComplete="off">
-              {/*onSubmit={handleSubmit}*/}
-
+            <form autoComplete="off" onSubmit={handleloginSubmit}>
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-envelope"></i>
                 </div>
                 <input
                   type={"name"}
-                  placeholder="username"
+                  placeholder="Email"
                   id="login-username"
                   // ref={userRef}
-                  // autoComplete="off"
-                  // onChange={(e)=>setUser(e.target.value)}
-                  // value={user}
+                  autoComplete="on"
+                  onChange={(e) =>
+                    setloginDetails({
+                      ...loginDetails,
+                      loginEmail: e.target.value,
+                    })
+                  }
+                  value={loginDetails.loginEmail}
                   required
                 />
               </div>
@@ -208,17 +247,22 @@ export const MainContainer = ({
                 </div>
                 <input
                   type={"password"}
-                  placeholder="password"
+                  placeholder="Password"
                   id="login-password"
-                  autoComplete="off"
-                  // onChange={(e)=>setPwd(e.target.value)}
-                  // value={pwd}
+                  autoComplete="on"
+                  onChange={(e) => {
+                    setloginDetails({
+                      ...loginDetails,
+                      loginPassword: e.target.value,
+                    });
+                  }}
+                  value={loginDetails.loginPassword}
                   required
                 />
               </div>
               <br></br>
               <motion.button
-                type="button"
+                type="submit"
                 className="signin-button"
                 variants={otherButtonVariants}
                 whileHover="hover"
@@ -231,17 +275,17 @@ export const MainContainer = ({
             <p>Or Sign In Using</p>
             {/* <h1>Sign In Using</h1> */}
             <div className="signin-icons">
-              <a href="#" className="icon facebook">
+              <Link to="" className="icon facebook">
                 <i className="fab fa-facebook-f"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon google">
+              <Link href="#" className="icon google">
                 <i className="fab fa-google"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon twitter">
+              <Link href="#" className="icon twitter">
                 <i className="fab fa-twitter"></i>
-              </a>
+              </Link>
             </div>
           </motion.div>
 
@@ -291,38 +335,82 @@ export const MainContainer = ({
           >
             <h1>Registration</h1>
 
-            <form autoComplete="off">
+            <form autoComplete="on" onSubmit={handleregisterSubmit}>
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-user"></i>
                 </div>
-                <input type={"name"} placeholder="username" />
+                <input
+                  type={"name"}
+                  placeholder="Name"
+                  value={registerDetails.registerName}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerName: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
 
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-envelope"></i>
                 </div>
-                <input type={"email"} placeholder="email" />
+                <input
+                  type={"email"}
+                  placeholder="Email"
+                  value={registerDetails.registerEmail}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerEmail: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
 
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-lock"></i>
                 </div>
-                <input type={"password"} placeholder="password" />
+                <input
+                  type={"password"}
+                  placeholder="Password"
+                  value={registerDetails.registerPassword}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerPassword: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
 
               <div className="custom-input">
                 <div className="icon">
                   <i class="fas fa-lock"></i>
                 </div>
-                <input type={"password"} placeholder="confirm password" />
+                <input
+                  type={"password"}
+                  placeholder="Confirm Password"
+                  value={registerDetails.registerconfirmPassword}
+                  onChange={(e) => {
+                    setregisterDetails({
+                      ...registerDetails,
+                      registerconfirmPassword: e.target.value,
+                    });
+                  }}
+                  required
+                />
               </div>
               <br></br>
 
               <motion.button
-                type="button"
+                type="submit"
                 className="signin-button"
                 variants={otherButtonVariants}
                 whileHover="hover"
@@ -334,17 +422,17 @@ export const MainContainer = ({
 
             <p>Or Sign Up With</p>
             <div className="signin-icons">
-              <a href="#" className="icon facebook">
+              <Link href="#" className="icon facebook">
                 <i className="fab fa-facebook-f"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon google">
+              <Link href="#" className="icon google">
                 <i className="fab fa-google"></i>
-              </a>
+              </Link>
 
-              <a href="#" className="icon twitter">
+              <Link href="#" className="icon twitter">
                 <i className="fab fa-twitter"></i>
-              </a>
+              </Link>
             </div>
           </motion.div>
         </>

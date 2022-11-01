@@ -8,7 +8,7 @@ const errorHandler = require("./middleware/error");
 const session = require("express-session");
 const passport = require("passport");
 const pass = require("./middleware/passportAuth");
-const cors = require('cors')
+const cors = require("cors");
 
 const app = express();
 
@@ -31,6 +31,9 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+    },
   })
 );
 
