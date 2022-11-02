@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Landing from "./Components/LandingPage/Landing";
 import Home from "./Components/Home/Home";
 import Cards from "./Components/Cars/Cards";
+import Contact from "./Components/Contact/Contact";
 import { MainContainer } from "./Components/Login/MainContainer";
 import { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -45,6 +46,9 @@ function App() {
             />
           }
         ></Route>
+
+        <Route exact path="/contact" element={<Contact />}></Route>
+
       </Routes>
     </>
   );

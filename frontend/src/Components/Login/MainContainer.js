@@ -41,14 +41,14 @@ const rightSideVariants = {
   },
 };
 
-// const toggleButtonVariants = {
-//   hover: {
-//     scale: 0.9,
-//     transition: {
-//       yoyo: Infinity, // toggle type
-//     },
-//   },
-// };
+const toggleButtonVariants = {
+  hover: {
+    scale: 0.9,
+    transition: {
+      yoyo: Infinity, // toggle type
+    },
+  },
+};
 
 const otherButtonVariants = {
   hover: {
@@ -274,18 +274,43 @@ export const MainContainer = ({
 
             <p>Or Sign In Using</p>
             {/* <h1>Sign In Using</h1> */}
+
             <div className="signin-icons">
-              <Link to="" className="icon facebook">
-                <i className="fab fa-facebook-f"></i>
-              </Link>
+              <motion.div
+                variants={toggleButtonVariants}
+                whileHover="hover"
+                whileTap={"pressed"}
+                >
+                <Link to="" className="icon facebook">
+                  <i className="fab fa-facebook-f"></i>
+                </Link>
 
-              <Link href="#" className="icon google">
-                <i className="fab fa-google"></i>
-              </Link>
+              </motion.div>
 
-              <Link href="#" className="icon twitter">
-                <i className="fab fa-twitter"></i>
-              </Link>
+
+              <motion.div
+                variants={toggleButtonVariants}
+                whileHover="hover"
+                whileTap={"pressed"}
+                >      
+                  <Link href="#" className="icon google">
+                    <i className="fab fa-google"></i>
+                  </Link>
+
+              </motion.div>
+
+              <motion.div
+                variants={toggleButtonVariants}
+                whileHover="hover"
+                whileTap={"pressed"}
+                >
+
+                  <Link href="#" className="icon twitter">
+                    <i className="fab fa-twitter"></i>
+                  </Link>
+
+              </motion.div>
+
             </div>
           </motion.div>
 
@@ -422,17 +447,37 @@ export const MainContainer = ({
 
             <p>Or Sign Up With</p>
             <div className="signin-icons">
-              <Link href="#" className="icon facebook">
-                <i className="fab fa-facebook-f"></i>
-              </Link>
 
-              <Link href="#" className="icon google">
-                <i className="fab fa-google"></i>
-              </Link>
+              <motion.div
+                  variants={toggleButtonVariants}
+                  whileHover="hover"
+                  whileTap={"pressed"}
+                  >
+                  <Link href="#" className="icon facebook">
+                    <i className="fab fa-facebook-f"></i>
+                  </Link>
+              </motion.div>
 
-              <Link href="#" className="icon twitter">
-                <i className="fab fa-twitter"></i>
-              </Link>
+               <motion.div
+                  variants={toggleButtonVariants}
+                  whileHover="hover"
+                  whileTap={"pressed"} 
+                  >   
+                  <Link href="#" className="icon google">
+                    <i className="fab fa-google"></i>
+                  </Link>
+              </motion.div>
+
+              <motion.div
+                    variants={toggleButtonVariants}
+                    whileHover="hover"
+                    whileTap={"pressed"}
+                  >
+                  <Link href="#" className="icon twitter">
+                    <i className="fab fa-twitter"></i>
+                  </Link>
+              </motion.div>
+
             </div>
           </motion.div>
         </>
