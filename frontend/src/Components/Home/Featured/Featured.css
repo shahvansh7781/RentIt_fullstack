@@ -1,0 +1,34 @@
+.my-slider {
+    width: 59vmax;
+  }
+  .slider-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 40px;
+    width: 100%;
+  }
+  .card-styles {
+    width: 18vmax;
+  }
+  .card-button {
+    border-radius: 8px;
+    color: #eeeeee;
+    font-size: 0.9vmax;
+    padding: 0.6vmax 1vmax;
+    background-color: #00adb5;
+    text-decoration: none;
+  }
+  .card-button:hover{
+      color: white;
+  }
+  .card-div{
+      display: flex;
+      justify-content: space-between;
+  }
+  .card-div2{
+  margin-top: 0.4vmax;
+  }
+  .card-div-h5{
+      font-size: 1.1vmax;
+  }
