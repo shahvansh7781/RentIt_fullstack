@@ -1,0 +1,15 @@
+
+.footer-div{
+    width: 100%;
+    background-color:#222831 ;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    padding: 5.2vmax;
+    font-size: 1vmax;
+}
+.footer-child-div{
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}

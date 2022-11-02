@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import Simpleslider from "./Slider/Slider";
 import Featured from "./Featured/Featured";
+import Footer from "../Footer/Footer";
 const Home = () => {
   return (
     <>
@@ -10,6 +11,7 @@ const Home = () => {
       </div>
       <Simpleslider />
       <Featured />
+      <Footer/>
     </>
   );
 };
