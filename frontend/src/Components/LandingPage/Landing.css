@@ -22,7 +22,7 @@
 .mylink1 {
   text-decoration: none;
   font-size: 1.4vmax;
-  background: #03a8b0;
+  background: #3591ca;
   padding: 1.2vmax 2.4vmax;
   border-radius: 27px;
   color: white;
@@ -36,12 +36,19 @@
 }
 .all-content {
   /* background-color: #222831; */
-  background: linear-gradient(
+  /* background: linear-gradient(
     324deg,
     rgba(3, 168, 176, 1) 0%,
     rgba(34, 40, 49, 1) 15%,
     rgba(34, 40, 49, 1) 83%,
     rgba(3, 168, 176, 1) 100%
+  ); */
+  background: linear-gradient(
+    324deg,
+    rgba(53, 145, 202, 1) 0%,
+    rgba(34, 40, 49, 1) 15%,
+    rgba(34, 40, 49, 1) 83%,
+    rgba(53, 145, 202, 1) 100%
   );
   color: white;
   height: 100vh;

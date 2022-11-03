@@ -5,18 +5,18 @@
     display: flex;
     justify-content: space-evenly;
     color: white;
-    padding: 3vh;
+    padding: 5.2vmax;
 }
 .footer-child-div{
     display: flex;
     flex-direction: column;
     gap: 1.3rem;
-    margin:0 1vh;
+    /* margin:0 1vh; */
 }
 .footer-child-heading{
 
-    font-weight:550;
-    font-size: 1.3rem;
+    font-weight:bold;
+    font-size: 1.3vmax;
     color: #2ea8e7;
 }
 .social-icon i{
@@ -24,7 +24,7 @@
 }
 
 .footer-child-info{
-    font-size: medium;
+    font-size: 1vmax;
 }
 
 @media (max-width:600px){
