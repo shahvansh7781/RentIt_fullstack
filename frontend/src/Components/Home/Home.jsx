@@ -24,6 +24,7 @@ const pagesAnimation = {
 
 
 
+import Main from "../Services/Main";
 const Home = () => {
   return (
     <>
@@ -37,6 +38,7 @@ const Home = () => {
         <Simpleslider />
       </motion.div>
       <Featured />
+      <Main/>
       <Footer/>
       </div>
     </>

@@ -5,7 +5,8 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 40px;
+    padding-top: 2vmax;
+    padding-bottom: 6vmax;
     width: 100%;
   }
   .card-styles {
