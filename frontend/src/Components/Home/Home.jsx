@@ -38,9 +38,6 @@ const pagesAnimationRight = {
   },
 };
 
-
-
-
 const Home = () => {
   return (
     <>

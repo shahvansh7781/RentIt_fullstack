@@ -34,6 +34,7 @@
 .side-img {
   width: 31vmax;
   height: 31vmax;
+  border-radius: 50%;
 }
 .all-content {
   /* background-color: #222831; */

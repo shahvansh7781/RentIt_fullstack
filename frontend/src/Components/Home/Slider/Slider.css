@@ -16,3 +16,13 @@
   background-color: #3591ca;
   text-decoration: none;
 }
+p{
+  font-size:0.5rem;
+}
+
+.main-div{
+  height: 100%;
+}
+button{
+  font-size: 1vmax;
+}

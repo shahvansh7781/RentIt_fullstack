@@ -7,11 +7,89 @@ import "./Contact.css";
 
 // import { ToastContainer,toast } from 'react-toastify';
 
+
+// const infoAnimation={
+  
+//   hidden:{
+
+//     opacity:0,
+//     scale: 0.6  
+//   },
+//   visible:{
+
+//     opacity:1,
+//     scale: 1,
+//     transition:{
+//       duration: 5,
+//       ease: [0, 0.71, 0.2, 1.01],
+//     scale:{
+//       type: "spring",
+//       damping: 4,
+//       stiffness: 50,
+//       restDelta: 0.002},
+//     // ease: [0, 0.71, 0.2, 1.01],
+//     duration:5}
+//   },
+//   transition:{  }
+// }
+
+
+const infoAnimation={
+  
+  hidden:{
+
+    opacity:0,
+    scale: 0.6  
+  },
+  visible:{
+    opacity:1,
+    scale:1,
+    transition:{type:"spring",duration:4,bounce:.3}
+   
+  }
+}
+
+
+const textAnimation={
+
+  hidden:{
+    y:400,opacity:0
+  },
+  visible:{
+    y:0,
+    x:0,
+    opacity:1,
+    transition:{type:"spring",  
+        bounce:0.4,
+        duration:6
+    }
+  }
+}
+
+const mapAnimation={
+
+  hidden:{
+    opacity:0,
+    scale:0.7
+  },
+  visible:{
+    x:0,
+    scale:1,
+    opacity:1,
+    transition:{type:"tween",  
+        // bounce:0.4,
+        duration:3.5
+    }
+  }
+
+}
+
+
 const pagesAnimation = {
  
   hidden: {
     opacity: 0,
-    x: -2100,
+    x: -400,
   },
 
   visible: {
@@ -20,6 +98,7 @@ const pagesAnimation = {
     transition: { delay: 0.15, duration: 2.5, type: "spring"},
   },
 };
+
 
 
 const Contact = () => {
@@ -49,39 +128,72 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
+
+    <div
         variants={pagesAnimation}
         initial="hidden"
         animate="visible"
         className="contact-section">
-      <div
+      <motion.div
+        variants={pagesAnimation}
+        initial="hidden"
+        animate="visible"
         className="contact-bg">
         <div className="contact-nav">
           <Navbar />
         </div>
-        <div className="contact-intro">
+        <motion.div 
+            variants={textAnimation}
+            initial="hidden"
+            animate="visible"
+
+          className="contact-intro">
           <h3>Get in Touch with Us</h3>
           <h2>contact us</h2>
-          <p className="text">
+          <motion.p 
+             variants={textAnimation}
+             initial="hidden"
+             animate="visible"
+          
+          className="text">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda
             iste facilis quos impedit fuga nobis modi debitis laboriosam velit
             reiciendis quisquam alias corporis, maxime enim, optio ab dolorum
             sequi qui.
-          </p>
-        </div>
-      </div>
+          </motion.p>
+        </motion.div>
+      </motion.div>
 
       <div className="contact-body">
-        <div className="contact-info">
-          <div>
+
+        <div 
+          variants={infoAnimation}
+          initial="hidden"
+          whileInView={"visible"}
+          viewport={{once:false,amount:0.3}}
+          className="contact-info"
+        >
+          <motion.div
+            variants={infoAnimation}
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{once:false,amount:0.3}}
+            className="contact-info"
+          >
             <span>
               <i className="fas fa-mobile-alt"></i>
             </span>
             <span>Phone No.</span>
             <span className="text">+91 9876789800</span>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            variants={infoAnimation}
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{once:false,amount:0.3}}
+            className="contact-info"
+            >
             <span>
               <i className="fas fa-envelope-open"></i>
             </span>
@@ -91,18 +203,32 @@ const Contact = () => {
                 rentit7.com@gmail.com
               </a>
             </span>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            variants={infoAnimation}
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{once:false,amount:0.3}}
+            className="contact-info"
+            >
             <span>
               <i className="fas fa-map-marker-alt"></i>
             </span>
             <span>Address</span>
             <span className="text">390001 , Kalabhavan , Vadodara</span>
-          </div>
+          </motion.div>
+
         </div>
 
-        <div className="contact-form">
+        <motion.div 
+            variants={infoAnimation}
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{once:false,amount:0.275}}
+            className="contact-form"
+          >
+
           <form ref={form} onSubmit={sendEmail}>
             <div className="contact-form-div">
               <input
@@ -111,7 +237,6 @@ const Contact = () => {
                 className="form-control"
                 placeholder=" Your Name"
                 required
-                // onChange={handleInputChange}
               />
             </div>
 
@@ -121,7 +246,6 @@ const Contact = () => {
                 name="email"
                 className="form-control"
                 placeholder=" Your Email"
-                // onChange={handleInputChange}
               />
             </div>
 
@@ -131,7 +255,6 @@ const Contact = () => {
                 name="subject"
                 className="form-control"
                 placeholder=" Subject"
-                // onChange={handleInputChange}
               />
             </div>
 
@@ -140,7 +263,6 @@ const Contact = () => {
                 placeholder="  Message"
                 name="message"
                 className="form-area"
-                // onChange={handleInputChange}
               ></textarea>
             </div>
 
@@ -150,17 +272,25 @@ const Contact = () => {
               </button>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
 
       {/* Map Map */}
-      {/* <MapC /> */}
-      <div className="map">
+  
+      <motion.div 
+          variants={mapAnimation}
+          initial="hidden"
+          whileInView={"visible"}
+          viewport={{once:false,amount:0.3}}
+          className="map"
+        >
+          {/*MAP  */}
         <h1>Map</h1>
-      </div>
+
+      </motion.div>
 
       <Footer />
-    </motion.div>
+    </div>
   );
 };
 

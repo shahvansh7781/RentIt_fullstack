@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 ul{
     display: flex;
-    gap: 4vmax;
+    gap: 4.2vmax;
     justify-content: center;
     align-items: center;
 }
@@ -39,6 +39,10 @@ ul > li{
 
   
   @media (max-width:760px){
+
+    ul{
+        gap: 4vmax;
+    }
     #dropdown-basic-button{
         font-size: .7rem;
         padding: 6px;
