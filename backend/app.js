@@ -54,6 +54,6 @@ app.use("/myapp", bookRoute);
 
 // process.env.PORT
 app.use(errorHandler);
-app.listen(5000, () => {
-  console.log(`Server is running at ${5000}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running at ${process.env.PORT}`);
 });

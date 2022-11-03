@@ -23,7 +23,7 @@ const Featured = () => {
             paddingTop: "40px",
           }}
         >
-          <h4 style={{ color: "#03a8b0" }}>What We Offer</h4>
+          <h4 style={{ color: "#3591ca" }}>What We Offer</h4>
           <h1>Featured Vehicles</h1>
         </div>
         <div className="slider-div">
