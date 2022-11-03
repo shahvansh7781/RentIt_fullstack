@@ -10,7 +10,7 @@ body {
   line-height: 1.5;
 }
 .contact-bg {
-  height: 100.4vh;
+  height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
     url("https://img.freepik.com/free-photo/closeup-business-woman-hand-typing-laptop-keyboard-with-m_1232-2746.jpg?w=1380&t=st=1667452589~exp=1667453189~hmac=30ea7064ee3ca34ca7cf61c7fd97db6a47fb0afababd91d3bf563d85ec767948");
   /* background-position: 50% 100%; */
@@ -282,4 +282,9 @@ body {
         width: 100%;
         padding: 2rem; */
   }
+
+.main-box .rightside.form-section h1 {
+
+  margin-top: 5vh;
+}
 }

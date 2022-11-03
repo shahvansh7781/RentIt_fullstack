@@ -3,6 +3,7 @@ import Carousel from "react-bootstrap/Carousel";
 import car1 from "../../../images/car1.png";
 import car2 from "../../../images/car2.png";
 import car3 from "../../../images/car3.png";
+import { motion } from "framer-motion";
 import "./Slider.css";
 const Simpleslider = () => {
   return (

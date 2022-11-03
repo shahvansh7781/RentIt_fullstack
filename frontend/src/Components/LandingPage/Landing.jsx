@@ -2,10 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import rentside from "../../images/rent_side.png"
 import Navbar from "../Navbar/Navbar";
+import { motion } from "framer-motion";
 import "./Landing.css"
+
+
+const pagesAnimation = {
+  hidden: {
+    opacity: 0,
+    x: -1400, 
+    y:-900
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    y:0,
+    rotate:360,
+    transition: { delay: 0.3, duration: 4, type: "spring" },
+  },
+};
+
+
 const Landing = () => {
   return (
-    <div className="all-content">
+    <motion.div 
+      variants={pagesAnimation}
+      initial="hidden"
+      animate="visible"
+      className="all-content">
       <Navbar/>
       <div className="main-content">
         <div className="inner-content">
@@ -17,7 +41,7 @@ const Landing = () => {
             <img src={rentside} alt="" srcset="" className="side-img" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

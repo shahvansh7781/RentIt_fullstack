@@ -30,6 +30,9 @@ ul > li{
 }
 .nav-links:hover{
     color: white;
+    font-size: 1.2vmax;
+    transition: .5s all ease-in-out;
+    border-bottom: 1.5px solid #44b7ff;
 }
 .fa-cog {
     color: white

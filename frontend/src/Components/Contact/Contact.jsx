@@ -2,9 +2,28 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { motion } from "framer-motion";
 import "./Contact.css";
 
 // import { ToastContainer,toast } from 'react-toastify';
+
+const pagesAnimation = {
+ 
+  hidden: {
+    opacity: 0,
+    x: -1400,
+    y:-900
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0, 
+    y:0,
+    
+    transition: { delay: 0.3, duration: 2, type: "spring"},
+  },
+};
+
 
 const Contact = () => {
   const form = useRef();
@@ -32,13 +51,14 @@ const Contact = () => {
     e.target.reset();
   };
 
-  // const handleInputChange =()=>{
-
-  // }
-
   return (
-    <div className="contact-section">
-      <div className="contact-bg">
+    <motion.div
+        variants={pagesAnimation}
+        initial="hidden"
+        animate="visible"
+        className="contact-section">
+      <div
+        className="contact-bg">
         <div className="contact-nav">
           <Navbar />
         </div>
@@ -143,7 +163,7 @@ const Contact = () => {
       </div>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
