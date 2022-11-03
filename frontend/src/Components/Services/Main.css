@@ -26,3 +26,13 @@ margin-bottom: 2vmax;
     align-items: center;
     gap: 1rem;
   }
+
+  @media (max-width:530px){
+
+    .service-body{
+      flex-direction: column;
+    }
+    .service-info{
+      margin-top: -20vh;
+    }
+  }

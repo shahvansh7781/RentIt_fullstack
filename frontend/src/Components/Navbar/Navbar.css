@@ -9,7 +9,6 @@ ul > li{
     list-style: none;
 }
 
-
 .nav-links{
     text-decoration: none;
     font-size: 1vmax;
@@ -30,7 +29,7 @@ ul > li{
 }
 .nav-links:hover{
     color: white;
-    font-size: 1.2vmax;
+    font-size: 1.15vmax;
     transition: .5s all ease-in-out;
     border-bottom: 1.5px solid #44b7ff;
 }
@@ -72,7 +71,7 @@ ul > li{
     }
     .nav-links{
         /* text-decoration: none; */
-        font-size: 3.3vh;
+        font-size: 2.3vh;
         color: #a7a9ad;
     }
     .logo-img{
@@ -84,5 +83,9 @@ ul > li{
         font-weight:400;
         padding:0.375rem 0.75rem;
         font-size: 1rem;
-    }   
+    }  
+    
+    .nav-links:hover{
+        font-size: 1.3rem;
+    }
   }

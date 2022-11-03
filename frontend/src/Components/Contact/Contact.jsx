@@ -11,16 +11,13 @@ const pagesAnimation = {
  
   hidden: {
     opacity: 0,
-    x: -1400,
-    y:-900
+    x: -2100,
   },
 
   visible: {
     opacity: 1,
     x: 0, 
-    y:0,
-    
-    transition: { delay: 0.3, duration: 2, type: "spring"},
+    transition: { delay: 0.15, duration: 2.5, type: "spring"},
   },
 };
 

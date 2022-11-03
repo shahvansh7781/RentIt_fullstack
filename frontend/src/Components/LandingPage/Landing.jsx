@@ -6,11 +6,14 @@ import { motion } from "framer-motion";
 import "./Landing.css"
 
 
+// initial={{ '--rotate': '0deg' } as any}
+// animate={{ '--rotate': '360deg' } as any}
+
 const pagesAnimation = {
   hidden: {
     opacity: 0,
     x: -1400, 
-    y:-900
+    y:0
   },
 
   visible: {
@@ -35,10 +38,14 @@ const Landing = () => {
         <div className="inner-content">
             <h1>Welcome to <span style={{color:"#3591ca", fontFamily: "Poppins"}}> RentIT </span></h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br /> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br /> when an unknown printer  took a galley  of type  and scrambled it to make a type <br /> specimen book. It has survived not only five centuries, but also the leap into <br /> electronic typesetting, remaining essentially unchanged. <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quam ipsa velit culpa, <br /> vero soluta voluptatum voluptatibus doloribus, laudantium assumenda deserunt <br /> vel qui nisi necessitatibus nulla nobis voluptate mollitia unde.</p>
-            <Link className="mylink1" to="/home">Get Started</Link>
+            <p>
+              <Link className="mylink1" to="/home">Get Started</Link>
+            </p>
         </div>
-        <div>
-            <img src={rentside} alt="" srcset="" className="side-img" />
+        <div className="img-div">
+            <div>
+              <img src={rentside} alt="" srcset="" className="side-img" />
+            </div>
         </div>
       </div>
     </motion.div>

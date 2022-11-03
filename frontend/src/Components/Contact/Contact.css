@@ -247,6 +247,9 @@ body {
     margin: 0;
     margin-bottom: 3rem;
   }
+  .contact-intro{
+    margin-top: -5vh;
+  }
 
   .contact-form {
     width: 100%;
@@ -273,6 +276,9 @@ body {
   .contact-form {
     width: 100%;
     margin: 0;
+  }
+  .contact-intro{
+    margin-top: -12vh;
   }
   .map {
     margin: 4vh 2vh;

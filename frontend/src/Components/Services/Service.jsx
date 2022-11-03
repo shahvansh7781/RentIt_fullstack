@@ -3,11 +3,35 @@ import "./Service.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Main from "./Main";
+
+
+
+const pagesAnimation = {
+ 
+  hidden: {
+    opacity: 0,
+    x: -2100,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0, 
+    transition: { delay: 0.15, duration: 2.5, type: "spring"},
+  },
+};
+
+
 const Service = () => {
   return (
     <>
-      <div className="service-bg">
+      <motion.div 
+        variants={pagesAnimation}
+        initial="hidden"
+        animate="visible"
+
+      className="service-bg">
         <div className="service-nav">
           <Navbar />
         </div>
@@ -23,7 +47,7 @@ const Service = () => {
             Contact Us
           </Link>
         </div>
-      </div>
+      </motion.div>
       <Main/>
       <Footer />
     </>

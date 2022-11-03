@@ -92,13 +92,16 @@
 .main-box .logo.blue {
   color: #1fa4f6;
 }
+/* 
 .main-box .logo.none {
   display: none;
-}
+} */
 
 .main-box .logo .logo-text {
   margin-top: 5px;
   letter-spacing: 00.09em;
+  font-size: 1.5vmax;
+  color: #333;
 }
 
 .main-box .form-section {
