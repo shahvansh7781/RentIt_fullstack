@@ -15,8 +15,52 @@ const Navbar = () => {
   };
   return (
     <>
-      {isAuthenticated ? (
+      {isAuthenticated && user.role === 'admin' ? (
         <ul style={{ marginBottom: 0 }}>
+          <li>
+            <NavLink to="/">
+              <img src={logo} alt="" srcset="" className="logo-img" />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-links" to="/home">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-links" to="/about">
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-links" to="/cars">
+              Cars
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-links" to="/services">
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="nav-links" to="/contact">
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <DropdownButton
+              id="dropdown-basic-button"
+              title={`Welcome ${user.name}`}
+            >
+              <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
+              <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Dashboard</Dropdown.Item>
+            </DropdownButton>
+          </li>
+        </ul>
+      ) : isAuthenticated ? (
+<ul style={{ marginBottom: 0 }}>
           <li>
             <NavLink to="/">
               <img src={logo} alt="" srcset="" className="logo-img" />
