@@ -1,0 +1,28 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+.back-icon{
+    background-color: aqua;
+    width: 100%;
+    height: 50px;
+ }
+ .car-details-container {
+    background-color: #e34949;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+ }
+ .car-details-container .car-details{
+    color: aliceblue;
+ }
+
+ .form-container {
+    background-color: turquoise;
+    width: 100%;
+ }
