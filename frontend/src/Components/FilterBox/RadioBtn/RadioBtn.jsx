@@ -6,11 +6,12 @@ import { ThemeProvider } from "@emotion/react";
 
 const theme = createTheme({
     status: {
-      danger: "#e53e3e",
+      // danger: "#e53e3e",
+      danger: "#3591ca",
     },
     palette: {
       primary: {
-        main: "#ffa31a",
+        main: "#3591ca",
         darker: "#053e85",
       },
       neutral: {
