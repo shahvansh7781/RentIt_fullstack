@@ -1,0 +1,19 @@
+.Cards {
+  background-color: #3c3c3c;
+  grid-area: Cards;
+
+  width: 75%;
+  height: 98%;
+  padding: 18px 30px;
+  margin: 7px;
+  border: none;
+  border-radius: 7px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+} /*# sourceMappingURL=Cards.css.map */
