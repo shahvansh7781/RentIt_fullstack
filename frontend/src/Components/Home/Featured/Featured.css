@@ -33,3 +33,6 @@
   .card-div-h5{
       font-size: 1.1vmax;
   }
+  .card-div {
+    overflow: hidden;
+  }

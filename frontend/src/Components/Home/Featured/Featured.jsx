@@ -3,6 +3,42 @@ import "./Featured.css";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
+
+
+
+const sliderAnimation={
+
+  hidden:{
+    opacity:0,
+    scale:0.8
+  },
+  visible:{
+    x:0,
+    scale:1,
+    opacity:1,
+    transition:{type:"tween",  
+        duration:1.5
+    }
+  }
+
+}
+const textAnimation = {
+ 
+  hidden: {
+    opacity: 0,
+    scale:.6
+  },
+
+  visible: {
+    opacity: 1,
+    scale:1,
+    transition: { delay: 0.15, duration: 2.5, type: "spring"},
+  },
+};
+
+
+
 const Featured = () => {
   var settings = {
     dots: true,
@@ -16,7 +52,12 @@ const Featured = () => {
   return (
     <>
       <div style={{ backgroundColor: "#f8f9fa" }}>
-        <div
+        <motion.div
+          variants={textAnimation}
+          initial="hidden"
+          whileInView={"visible"}
+          viewport={{once:false,amount:0.25}}
+
           style={{
             textAlign: "center",
             marginTop: "3vmax",
@@ -25,8 +66,14 @@ const Featured = () => {
         >
           <h4 style={{ color: "#3591ca" }}>What We Offer</h4>
           <h1>Featured Vehicles</h1>
-        </div>
-        <div className="slider-div">
+        </motion.div>
+        <motion.div 
+          variants={sliderAnimation}
+          initial="hidden"
+          whileInView={"visible"}
+          viewport={{once:false,amount:0.35}}
+
+        className="slider-div">
           <Slider {...settings} className="my-slider">
             <div>
               <Card
@@ -161,7 +208,7 @@ const Featured = () => {
               </Card>
             </div>
           </Slider>
-        </div>
+        </motion.div>
       </div>
     </>
   );

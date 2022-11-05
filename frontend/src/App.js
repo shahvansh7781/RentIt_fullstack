@@ -31,7 +31,6 @@ function App() {
   return (
     <>
       {/* <Navbar/> */}
-
       <Routes>
         <Route exact path="/" element={<Landing />}></Route>
         <Route exact path="/home" element={<Home />}></Route>

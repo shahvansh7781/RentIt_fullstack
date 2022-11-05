@@ -3,11 +3,14 @@ import Carousel from "react-bootstrap/Carousel";
 import car1 from "../../../images/car1.png";
 import car2 from "../../../images/car2.png";
 import car3 from "../../../images/car3.png";
+import { motion } from "framer-motion";
 import "./Slider.css";
 const Simpleslider = () => {
   return (
     <>
-      <Carousel style={{ backgroundColor: "#000000" }}>
+     <div className="main-div">
+      <Carousel style={{ backgroundColor: "#000000" }} >
+       
         <Carousel.Item interval={1000}>
           <img className="d-block w-100" src={car1} alt="First slide" />
 
@@ -15,7 +18,7 @@ const Simpleslider = () => {
             <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }}>
               #1 Car Rent Service In Your City
             </h2>
-            <p style={{ fontSize: "1vmax" }}>
+            <p >
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
@@ -28,7 +31,7 @@ const Simpleslider = () => {
             <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }}>
               Quality Cars with Unlimited Miles
             </h2>
-            <p style={{ fontSize: "1vmax" }}>
+            <p >
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
@@ -39,17 +42,22 @@ const Simpleslider = () => {
           <img className="d-block w-100" src={car3} alt="Third slide" />
           <Carousel.Caption bsPrefix="my-carousel-caption">
             <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }}>
-              24/7 Customer Support Guarantee
+              24/7 Customer Support Guarantee  
             </h2>
-            <p style={{ fontSize: "1vmax" }}>
+
+            <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
-            <button className="carousel-button">Book Now</button>
+            <div>
+              <button className="carousel-button">Book Now</button>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
+       
       </Carousel>
+    </div>
     </>
   );
 };

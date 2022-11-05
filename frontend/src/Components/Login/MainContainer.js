@@ -4,7 +4,7 @@ import { target } from "react-icons-kit/feather/target";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import "./Main.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, register } from "../../Actions/userActions";
@@ -121,6 +121,7 @@ export const MainContainer = ({
   //     setPwd('');
   //     setSuccess(true);
   // }
+
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -162,10 +163,13 @@ export const MainContainer = ({
         initial="hidden"
         animate="visible"
       >
-        <div className="icon">
+        
+        <div className="icon">   
           <Icon icon={target} size={24} />
         </div>
-        <div className="logo-text">Rent-It</div>
+        <NavLink to="/" >
+          <div className="logo-text">Rent-IT</div>
+        </NavLink>
       </motion.div>
 
       {/* 
@@ -228,7 +232,6 @@ export const MainContainer = ({
                   type={"name"}
                   placeholder="Email"
                   id="login-username"
-                  // ref={userRef}
                   autoComplete="on"
                   onChange={(e) =>
                     setloginDetails({
