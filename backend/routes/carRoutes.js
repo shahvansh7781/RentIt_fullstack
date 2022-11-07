@@ -5,7 +5,8 @@ const {
   updateCar,
   deleteCar,
   getRequiredCar,
-  sortRent,
+  sortRentASC,
+  sortRentDESC,
 } = require("../controllers/carController");
 const authorized = require("../middleware/authentication");
 const router = express.Router();
@@ -22,5 +23,6 @@ router
 router.route("/cars").get(getCars);
 router.route("/car/:id").get(getRequiredCar);
 
-router.route("/cars/sort/ascending").get(sortRent);
+router.route("/cars/sort/ascending").get(sortRentASC);
+router.route("/cars/sort/descending").get(sortRentDESC);
 module.exports = router;

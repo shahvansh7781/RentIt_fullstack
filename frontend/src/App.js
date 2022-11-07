@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadUser } from "./Actions/userActions";
 import Service from "./Components/Services/Service";
+import CarDetails from "./Components/CarDetails/CarDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ function App() {
 
         <Route exact path="/contact" element={<Contact />}></Route>
         <Route exact path="/services" element={<Service />}></Route>
+        <Route exact path="/car/:id" element={<CarDetails/>}></Route>
       </Routes>
     </>
   );
