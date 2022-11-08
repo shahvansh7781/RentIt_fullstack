@@ -55,7 +55,7 @@ const Navbar = () => {
               <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
               <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
               <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Dashboard</Dropdown.Item>
+              <Dropdown.Item href="/admin/dashboard">Dashboard</Dropdown.Item>
             </DropdownButton>
           </li>
         </ul>
