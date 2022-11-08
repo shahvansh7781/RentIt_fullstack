@@ -2,40 +2,44 @@ import React from "react";
 import "./Card.css";
 import { TbManualGearbox } from "react-icons/tb";
 import { FaUsers} from "react-icons/fa";
-const Card = ({setExpanded}) => {
+import { Link } from "react-router-dom";
+const Card = ({cars}) => {
+  // console.log(title);
   return (
+    <Link to={`/car/${cars._id}`}>
     <div className="main-contanier">
       <div className="card">
         <div className="card-nav">
           <div className="card-heading">
-            <h3>toyota</h3>
-            <h5>swift</h5>
+            <h5>{cars.title}</h5>
           </div>
         </div>
         <div className="main-content">
           <img
             src="https://cdn.vox-cdn.com/thumbor/HiwWwuQ_03ZW3m2BIcb1NtYPlcw=/0x0:2870x2116/1200x800/filters:focal(1203x969:1661x1427)/cdn.vox-cdn.com/uploads/chorus_image/image/50272225/150028_car.0.jpg"
-            alt="https://cdn.vox-cdn.com/thumbor/HiwWwuQ_03ZW3m2BIcb1NtYPlcw=/0x0:2870x2116/1200x800/filters:focal(1203x969:1661x1427)/cdn.vox-cdn.com/uploads/chorus_image/image/50272225/150028_car.0.jpg"
+            alt=""
           />
         </div>
         <div className="card-bottom-nav">
           <div className="car-info">
             <h3 className="car-space">
                 <FaUsers className="car-icon"/>
-                4
+                {cars.features.seats}
             </h3>
             <h5 className="car-gear">
               <TbManualGearbox className="car-icon" />
-              manual
+             {cars.features.gear}
             </h5>
            
           </div>
           <div className="car-price">
-              <button onClick={setExpanded}>146$/day</button>
+              {/* <button onClick={setExpanded}>146$/day</button> */}
+              <button>₹{cars.rent}/hr</button>
             </div>
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
