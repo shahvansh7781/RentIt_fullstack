@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Featured.css";
-import { Card } from "antd";
+// import { Card } from "antd";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
-
-
+// import { Card } from 'antd';
+import { useDispatch, useSelector } from "react-redux";
+import { getFeaturedCars } from "../../../Actions/carActions";
+import Card from "../../Card/Card";
+// import "../../Card/Card.css";
 
 const sliderAnimation={
 
@@ -49,6 +52,14 @@ const Featured = () => {
     autoplaySpeed: 2000,
     pauseOnHover: true,
   };
+  const dispatch = useDispatch();
+  const {fCars} = useSelector(state=>state.cars)
+  useEffect(() => {
+    
+  dispatch(getFeaturedCars());
+    
+  }, [dispatch])
+  
   return (
     <>
       <div style={{ backgroundColor: "#f8f9fa" }}>
@@ -75,7 +86,14 @@ const Featured = () => {
 
         className="slider-div">
           <Slider {...settings} className="my-slider">
-            <div>
+            {
+              fCars && fCars.map((fCar)=>{
+                 return <div>
+                  <Card key={fCar._id} cars={fCar} isFeatured={true}/>
+                 </div>
+              })
+            }
+            {/* <div>
               <Card
                 hoverable
                 className="card-styles"
@@ -206,7 +224,7 @@ const Featured = () => {
                   </div>
                 </div>
               </Card>
-            </div>
+            </div> */}
           </Slider>
         </motion.div>
       </div>

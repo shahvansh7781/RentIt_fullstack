@@ -5,6 +5,7 @@ import Featured from "./Featured/Featured";
 import Footer from "../Footer/Footer";
 import { motion } from "framer-motion";
 import Main from "../Services/Main";
+import { useSelector } from "react-redux";
 
 const pagesAnimationLeft = {
  
@@ -39,8 +40,12 @@ const pagesAnimationRight = {
 };
 
 const Home = () => {
+  const {loading} = useSelector(state=>state.user)
   return (
     <>
+    {
+      loading ? (<h1>Loading...</h1>) : (
+
     <div >
  
         <motion.div 
@@ -63,6 +68,8 @@ const Home = () => {
       <Main/>
       <Footer/>
       </div>
+      )
+    }
     </>
   );
 };
