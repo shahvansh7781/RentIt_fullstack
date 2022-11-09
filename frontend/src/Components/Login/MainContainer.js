@@ -408,6 +408,7 @@ export const MainContainer = ({
                   type={"password"}
                   placeholder="Password"
                   value={registerDetails.registerPassword}
+                  minLength="8"
                   onChange={(e) => {
                     setregisterDetails({
                       ...registerDetails,

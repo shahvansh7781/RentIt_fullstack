@@ -48,8 +48,20 @@ exports.getCars = catchAsyncErrors(async (req, res, next) => {
 });
 
 //Ascending Order
-exports.sortRent = catchAsyncErrors(async (req, res, next) => {
+exports.sortRentASC = catchAsyncErrors(async (req, res, next) => {
   const cars = await Car.find().sort({ rent: 1 });
+  if (!cars) {
+    return next(new ErrorHandler("Cars not found!", 500));
+  }
+
+  res.status(200).json({
+    sucess: true,
+    cars,
+  });
+});
+
+exports.sortRentDESC = catchAsyncErrors(async (req, res, next) => {
+  const cars = await Car.find().sort({ rent: -1 });
   if (!cars) {
     return next(new ErrorHandler("Cars not found!", 500));
   }

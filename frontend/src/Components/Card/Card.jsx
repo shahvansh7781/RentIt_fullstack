@@ -2,9 +2,11 @@ import React from "react";
 import "./Card.css";
 import { TbManualGearbox } from "react-icons/tb";
 import { FaUsers} from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Card = ({cars}) => {
   // console.log(title);
   return (
+    <Link to={`/car/${cars._id}`}>
     <div className="main-contanier">
       <div className="card">
         <div className="card-nav">
@@ -37,6 +39,7 @@ const Card = ({cars}) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

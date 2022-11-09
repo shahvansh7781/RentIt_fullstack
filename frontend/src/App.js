@@ -7,12 +7,18 @@ import Cars from "./Components/Cars/Cars";
 import Contact from "./Components/Contact/Contact";
 import { MainContainer } from "./Components/Login/MainContainer";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./Actions/userActions";
 import Service from "./Components/Services/Service";
+import CarDetails from "./Components/CarDetails/CarDetails";
+import Dashboard from "./Components/Admin/Dashboard";
+import UserList from "./Components/Admin/UserList/UserList";
+import CarList from "./Components/Admin/CarList/CarList";
+import BookingList from "./Components/Admin/BookingList/BookingList";
 
 function App() {
   const dispatch = useDispatch();
+  const {user} = useSelector(state=>state.user)
   const [container, setContainer] = useState("logined");
   const [logoClass, setLogoClass] = useState("logo blue");
   const changeContainerState = () => {
@@ -49,6 +55,11 @@ function App() {
 
         <Route exact path="/contact" element={<Contact />}></Route>
         <Route exact path="/services" element={<Service />}></Route>
+        <Route exact path="/car/:id" element={<CarDetails/>}></Route>
+        <Route exact path="/admin/dashboard" element={<Dashboard/>}></Route>
+        <Route exact path="/admin/dashboard/users" element={<UserList/>}></Route>
+        <Route exact path="/admin/dashboard/cars" element={<CarList/>}></Route>
+        <Route exact path="/admin/dashboard/bookings" element={<BookingList/>}></Route>
       </Routes>
     </>
   );
