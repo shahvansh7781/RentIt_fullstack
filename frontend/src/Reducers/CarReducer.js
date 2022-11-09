@@ -46,5 +46,16 @@ export const carReducer = createReducer(initialState,{
     particularcarFailure:(state,action)=>{
         state.loading = false;
         state.error = action.payload;
+    },
+    featuredcarRequest:(state)=>{
+        state.loading= true;
+    },
+    featuredcarSuccess:(state,action)=>{
+        state.loading = false;
+        state.fCars = action.payload;
+    },
+    featuredcarFailure:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
     }
 })

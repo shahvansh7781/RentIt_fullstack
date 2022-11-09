@@ -8,17 +8,17 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import { useSelector } from "react-redux";
 const Dashboard = () => {
-  let navigate = useNavigate();
-  const {user,loading} = useSelector(state=>state.user);
-  if (loading) {
-    return <h1>Loading...</h1>
-  }
-  else if (!user) {
-    navigate("/login");
-  }
-  else if (user.role !== "admin") {
-    navigate("/home");
-  }
+  // let navigate = useNavigate();
+  // const {user,loading} = useSelector(state=>state.user);
+  // if (loading) {
+  //   return <h1>Loading...</h1>
+  // }
+  // else if (!user) {
+  //   navigate("/login");
+  // }
+  // else if (user.role !== "admin") {
+  //   navigate("/home");
+  // }
   return (
     <div style={{ width: "100%", backgroundColor: "#222831", height: "100%" }}>
       <Navbar />

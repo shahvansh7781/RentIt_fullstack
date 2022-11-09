@@ -3,11 +3,11 @@ import "./Card.css";
 import { TbManualGearbox } from "react-icons/tb";
 import { FaUsers} from "react-icons/fa";
 import { Link } from "react-router-dom";
-const Card = ({cars}) => {
+const Card = ({cars,isFeatured}) => {
   // console.log(title);
   return (
     <Link to={`/car/${cars._id}`}>
-    <div className="main-contanier">
+    <div className={isFeatured ? "main-contanier-f" : "main-contanier"}>
       <div className="card">
         <div className="card-nav">
           <div className="card-heading">

@@ -18,7 +18,13 @@ body {
   /* align-items: center; */
   gap: 15px;
 }
-
+.main-contanier-f {
+  width: 20vmax;
+  display: flex;
+  flex-flow: row wrap;
+  /* align-items: center; */
+  gap: 15px;
+}
 .main-contanier .card {
   /* background-color: #606060; */
   background-color: #222831;
@@ -31,7 +37,19 @@ body {
   -webkit-box-shadow: 6px 6px 8px -2px rgba(0, 0, 0, 0.69);
   -moz-box-shadow: 6px 6px 8px -2px rgba(0, 0, 0, 0.69);
 }
-
+.main-contanier-f .card {
+  /* background-color: #606060; */
+  background-color: #222831;
+  width: 100%;
+  height: 22vmax;
+  border: 0px;
+  margin: 20px 15px;
+  /* margin: 4vmax 3vmax; */
+  border-radius: 1rem;
+  box-shadow: 6px 6px 8px -2px rgba(0, 0, 0, 0.69);
+  -webkit-box-shadow: 6px 6px 8px -2px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 6px 6px 8px -2px rgba(0, 0, 0, 0.69);
+}
 .main-contanier .card .card-nav {
   display: flex;
   flex-direction: row;
@@ -45,7 +63,13 @@ body {
   border: none;
   font-size: 1.5rem;
 } */
-
+.main-contanier-f .card .card-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.7rem;
+}
 .main-contanier .card .card-nav .card-heading {
     display: flex;
     flex-direction: row;
@@ -53,29 +77,52 @@ body {
     align-items: baseline;
     gap: 10px;
 }
+.main-contanier-f .card .card-nav .card-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 10px;
+}
 .main-contanier .card .card-nav .card-heading h3 {
   /* color: #ffa31a; */
   color: #3591ca;
   font-weight: 600;
 }
-
+.main-contanier-f .card .card-nav .card-heading h3 {
+  /* color: #ffa31a; */
+  color: #3591ca;
+  font-weight: 600;
+}
 .main-contanier .card .card-nav .card-heading h5 {
   font-weight: 600;
   color: #ffffff;
 }
-
+.main-contanier-f .card .card-nav .card-heading h5 {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.1vmax;
+}
 .main-contanier .card .main-content {
     margin: 10px 0;
   width: 100%;
   height: 60%;
 
 }
+.main-contanier-f .card .main-content {
+  margin: 10px 0;
+width: 100%;
+height: 60%;
 
+}
 .main-contanier .card .main-content img {
   width: 95%;
   border-radius: 5px;
 }
-
+.main-contanier-f .card .main-content img {
+  width: 95%;
+  border-radius: 5px;
+}
 .main-contanier .card .card-bottom-nav {
   display: flex;
   margin: 10px;
@@ -84,7 +131,14 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
-
+.main-contanier-f .card .card-bottom-nav {
+  display: flex;
+  margin: 0.8vmax;
+  font-weight: 600;
+  padding: 0vmax 0.8vmax;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .main-contanier .card .card-bottom-nav .car-info {
   display: flex;
   flex-direction: row;
@@ -93,7 +147,14 @@ body {
   gap: 12px;
   color: rgb(24, 147, 248);
 }
-
+.main-contanier-f .card .card-bottom-nav .car-info {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  gap: 1vmax;
+  color: rgb(24, 147, 248);
+}
 
 .main-contanier .card .card-bottom-nav .car-info .car-gear,
 .main-contanier .card .card-bottom-nav .car-info .car-space{
@@ -104,11 +165,21 @@ body {
     align-items: center;
     font-size: small;
 }
-
+.main-contanier-f .card .card-bottom-nav .car-info .car-gear,
+.main-contanier-f .card .card-bottom-nav .car-info .car-space{
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8vmax;
+}
 .main-contanier .card .card-bottom-nav .car-info .car-icon {
     font-size: 25px;
 }
-
+.main-contanier-f .card .card-bottom-nav .car-info .car-icon {
+  font-size: 1.5vmax;
+}
 .main-contanier .card .card-bottom-nav .car-price button{
     /* background-color: #ffa31a; */
     background-color: #3591ca;
@@ -118,4 +189,14 @@ body {
     padding: 7px;
     border-radius: 7px;
     font-size: medium;
+}
+.main-contanier-f .card .card-bottom-nav .car-price button{
+  /* background-color: #ffa31a; */
+  background-color: #3591ca;
+  border: none;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 7px;
+  border-radius: 7px;
+  font-size: 1vmax;
 }

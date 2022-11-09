@@ -22,8 +22,9 @@ import { getallCars, getASCcars, getDESCcars } from "../../Actions/carActions";
 import Card from "../Card/Card";
 const Cars = () => {
   const dispatch = useDispatch();
-  const { cars } = useSelector((state) => state.cars);
+  const { cars,loading } = useSelector((state) => state.cars);
   const [sort, setsort] = useState("");
+  const companies = ['Tata','Hyundai','Toyota','Maruti Suzuki','Mahindra']
   useEffect(() => {
     dispatch(getallCars());
   }, [dispatch]);
@@ -65,6 +66,8 @@ const Cars = () => {
   });
   return (
     <>
+    {
+      loading ?  ( <h1>Loading....</h1>) : (
       <div className="main-container-1">
         <div>
           <Navbar />
@@ -81,16 +84,16 @@ const Cars = () => {
                   </FormLabel>
                   <div className="divider"></div>
                   <FormGroup>
-                    {cars &&
-                      cars.map((car) => {
+                    {companies &&
+                      companies.map((company) => {
                         return (
                           <FormControlLabel
-                            label={car.company}
-                            value={car.company}
+                            label={company}
+                            value={company}
                             control={
                               <Checkbox
                                 size="large"
-                                checked={checkedItem.includes(car.company)}
+                                checked={checkedItem.includes(company)}
                                 onChange={handleChange}
                               />
                             }
@@ -146,12 +149,14 @@ const Cars = () => {
           <div className="card-container">
             {cars &&
               cars.map((car) => {
-                return <Card key={car._id} cars={car} />;
+                return <Card key={car._id} cars={car} isFeatured={false}/>;
                 // return <Link to={`/car/${car._id}`}><Card key={car._id} cars={car} /></Link>
               })}
           </div>
         </div>
       </div>
+      )
+    }
     </>
   );
 };
