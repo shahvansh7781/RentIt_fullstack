@@ -39,3 +39,13 @@ try {
   dispatch({type:"particularcarFailure",payload:error.response.data.message})
 }
 }
+
+export const getFeaturedCars = () => async(dispatch) => {
+try {
+  dispatch({type:"featuredcarRequest"});
+  const {data} = await axios.get("/myapp/cars?featured=true");
+  dispatch({type:"featuredcarSuccess",payload:data.cars})
+} catch (error) {
+  dispatch({type:"featuredcarFailure",payload:error.response.data.message})
+}
+}
