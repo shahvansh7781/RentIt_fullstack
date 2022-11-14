@@ -4,6 +4,7 @@ const ErrorHandler = require("../utils/errorHandler");
 const validator = require("validator");
 const passport = require("passport");
 const session = require("express-session");
+const { Result } = require("express-validator");
 
 exports.registerUser = (req, res, next) => {
   // If Password and Confirm Password doesnt match
@@ -60,24 +61,36 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   //     message: "Login Successful",
   //   });
   // }
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password,
-  });
+  // const user = new User({
+  //   username: req.body.username,
+  //   password: req.body.password,
+  // });
 
-  await req.login(user, function (err) {
+  // await req.login(user, function (err) {
+  //   if (err) {
+  //     return next(new ErrorHandler(err, 500));
+  //   } else {
+  //     passport.authenticate("local")(req, res, function () {
+  //       res.status(200).json({
+  //         success: true,
+  //         message: "Login Successful",
+  //         user:req.user
+  //       });
+  //     });
+  //   }
+  // });
+  passport.authenticate("local")(req,res,function (err,user) {
     if (err) {
       return next(new ErrorHandler(err, 500));
-    } else {
-      passport.authenticate("local")(req, res, function () {
-        res.status(200).json({
-          success: true,
-          message: "Login Successful",
-          user:req.user
-        });
-      });
     }
-  });
+    else {
+      res.status(200).json({
+       success:true,
+       message:"Login Successfull",
+       user:req.user
+       })
+    }
+  })
 });
 
 exports.logoutUser = catchAsyncErrors(async (req, res, next) => {

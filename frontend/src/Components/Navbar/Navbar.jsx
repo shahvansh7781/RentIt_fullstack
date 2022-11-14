@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <>
       {isAuthenticated && user.role === 'admin' ? (
-        <ul style={{ marginBottom: 0 }}>
+        <ul style={{ marginBottom: 0 }} className="my-nav-style">
           <li>
             <NavLink to="/">
               <img src={logo} alt="" srcset="" className="logo-img" />
@@ -61,7 +61,7 @@ const Navbar = () => {
           </li>
         </ul>
       ) : isAuthenticated ? (
-<ul style={{ marginBottom: 0 }}>
+<ul style={{ marginBottom: 0 }} className="my-nav-style">
           <li>
             <NavLink to="/">
               <img src={logo} alt="" srcset="" className="logo-img" />
@@ -104,7 +104,7 @@ const Navbar = () => {
           </li>
         </ul>
       ) : (
-        <ul style={{ marginBottom: 0 }}>
+        <ul style={{ marginBottom: 0 }} className="my-nav-style">
           <li>
             <NavLink to="/">
               <img src={logo} alt="" srcset="" className="logo-img" />
