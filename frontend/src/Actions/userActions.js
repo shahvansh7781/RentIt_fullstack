@@ -13,7 +13,7 @@ export const login = (username, password) => async (dispatch) => {
     );
     dispatch({ type: "loginSuccess", payload: data.user });
   } catch (error) {
-    dispatch({ type: "loginFailure", payload: error.message });
+    dispatch({ type: "loginFailure", payload: error.response.data });
   }
 };
 
