@@ -15,12 +15,15 @@ import Dashboard from "./Components/Admin/Dashboard";
 import UserList from "./Components/Admin/UserList/UserList";
 import CarList from "./Components/Admin/CarList/CarList";
 import BookingList from "./Components/Admin/BookingList/BookingList";
+import EditProfile from "./Components/MyProfile/EditProfile";
 
 function App() {
+  
   const dispatch = useDispatch();
   const {user} = useSelector(state=>state.user)
   const [container, setContainer] = useState("logined");
   const [logoClass, setLogoClass] = useState("logo blue");
+
   const changeContainerState = () => {
     if (container === "logined") {
       setContainer("registered");
@@ -28,6 +31,10 @@ function App() {
     } else if (container === "registered") {
       setContainer("logined");
       setLogoClass("logo blue");
+    }
+
+    if(container==="myprofile"){
+      setContainer("editprofile");
     }
   };
   useEffect(() => {
@@ -56,6 +63,7 @@ function App() {
         <Route exact path="/contact" element={<Contact />}></Route>
         <Route exact path="/services" element={<Service />}></Route>
         <Route exact path="/car/:id" element={<CarDetails/>}></Route>
+        <Route exact path="/myprofile/editprofile" element={<EditProfile />}></Route>
         <Route exact path="/admin/dashboard" element={<Dashboard/>}></Route>
         <Route exact path="/admin/dashboard/users" element={<UserList/>}></Route>
         <Route exact path="/admin/dashboard/cars" element={<CarList/>}></Route>

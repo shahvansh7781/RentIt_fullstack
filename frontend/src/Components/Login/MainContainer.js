@@ -90,6 +90,8 @@ const sideAnimationVariants = {
   },
 };
 
+
+
 export const MainContainer = ({
   container,
   changeContainerState,
@@ -156,6 +158,7 @@ export const MainContainer = ({
     );
   };
   return (
+    
     <div className="main-box">
       <motion.div
         className={logoClass}
@@ -205,6 +208,7 @@ export const MainContainer = ({
             </>
         )}
      */}
+     
       {container === "logined" && (
         <>
           {/*                 

@@ -3,7 +3,8 @@
   /* background-color: #3c3c3c; */
   background-color: #222831;
   width: 25%;
-  height: 100vh;
+  /* height: 100vh; */
+  height: inherit;
   padding: 5px 15px;
   margin: 7px;
   border: none;

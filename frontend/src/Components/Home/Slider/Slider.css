@@ -26,3 +26,31 @@ p{
 button{
   font-size: 1vmax;
 }
+.carousel-para{
+
+}
+
+@media(width<=760px){
+
+  
+  .carousel-para{
+    font-size: .7rem;
+  }
+}
+@media(width<=650px){
+
+  
+  .carousel-para{
+    font-size: .5rem;
+  }
+
+}
+@media(width<=520px){
+
+  .carousel-para{
+   display: none;
+  }
+  .carousel-item{
+    height: 28vh;
+  }
+}

@@ -14,11 +14,11 @@ const Simpleslider = () => {
         <Carousel.Item interval={1000}>
           <img className="d-block w-100" src={car1} alt="First slide" />
 
-          <Carousel.Caption bsPrefix="my-carousel-caption">
-            <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }}>
+          <Carousel.Caption bsPrefix="my-carousel-caption" >
+            <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }} className="carousel-h2">
               #1 Car Rent Service In Your City
             </h2>
-            <p >
+            <p  className="carousel-para">
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
@@ -28,10 +28,10 @@ const Simpleslider = () => {
         <Carousel.Item interval={500}>
           <img className="d-block w-100" src={car2} alt="Second slide" />
           <Carousel.Caption bsPrefix="my-carousel-caption">
-            <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }}>
+            <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }} className="carousel-h2">
               Quality Cars with Unlimited Miles
             </h2>
-            <p >
+            <p  className="carousel-para">
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
@@ -41,11 +41,11 @@ const Simpleslider = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={car3} alt="Third slide" />
           <Carousel.Caption bsPrefix="my-carousel-caption">
-            <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }}>
+            <h2 style={{ fontWeight: "bolder", fontSize: "2.7vmax",color:"white" }} className="carousel-h2">
               24/7 Customer Support Guarantee  
             </h2>
 
-            <p>
+            <p className="carousel-para">
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.

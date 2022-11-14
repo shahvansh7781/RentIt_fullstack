@@ -6,6 +6,7 @@ import "./Navbar.css";
 import logo from "../../images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Actions/userActions";
+
 const Navbar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
   const { user } = useSelector((state) => state.user);
@@ -52,7 +53,7 @@ const Navbar = () => {
               id="dropdown-basic-button"
               title={`Welcome ${user.name}`}
             >
-              <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
+              <Dropdown.Item href="/myprofile/editprofile">My Profile</Dropdown.Item>
               <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
               <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
               <Dropdown.Item href="/admin/dashboard">Dashboard</Dropdown.Item>
@@ -96,7 +97,7 @@ const Navbar = () => {
               id="dropdown-basic-button"
               title={`Welcome ${user.name}`}
             >
-              <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
+              <Dropdown.Item href="/myprofile/editprofile">My Profile</Dropdown.Item>
               <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
               <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
             </DropdownButton>
