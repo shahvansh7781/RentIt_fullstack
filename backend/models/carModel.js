@@ -15,7 +15,7 @@ const carSchema = new mongoose.Schema({
     required: [true, "Car Rent cannot be empty!"],
   },
   bookedSlot: 
-    {
+    [{
       from: {
         type: String,
       },
@@ -25,9 +25,10 @@ const carSchema = new mongoose.Schema({
       bookingId:{
         type:mongoose.Schema.ObjectId,
         ref:"Booking",
-        reuired:true
+        required:true
       }
-    },
+    }
+    ],
   featured: {
     type: Boolean,
     default: false,
@@ -77,27 +78,22 @@ const carSchema = new mongoose.Schema({
     airConditioner: {
       type: String,
       required: [true, "Air Conditioner field can't be empty!"],
-      enum: ["Yes", "No"],
     },
     gps: {
       type: String,
       required: [true, "GPS field can't be empty!"],
-      enum: ["Yes", "No"],
     },
     usb: {
       type: String,
       required: [true, "USB field can't be empty!"],
-      enum: ["Yes", "No"],
     },
     radio: {
       type: String,
       required: [true, "FM Radio field can't be empty!"],
-      enum: ["Yes", "No"],
     },
     parkingSensor: {
       type: String,
       required: [true, "Sensor field can't be empty!"],
-      enum: ["Yes", "No"],
     },
   },
   user: {

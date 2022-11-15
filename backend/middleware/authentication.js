@@ -6,7 +6,7 @@ exports.myAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     next();
   } else {
-    return next(new ErrorHandler("Login to Access this resource", 500));
+    return next(new ErrorHandler("Please Login!", 500));
   }
 };
 
