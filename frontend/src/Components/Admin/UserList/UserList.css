@@ -28,7 +28,7 @@
     cursor: pointer;
   }
   svg {
-    color: #EEEEEE;
+    /* color: #EEEEEE; */
   }
   .search {
     display: flex;

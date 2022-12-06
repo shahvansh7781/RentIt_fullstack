@@ -16,13 +16,40 @@
   background-color: #3591ca;
   text-decoration: none;
 }
-p{
-  font-size:0.5rem;
+.carousel-para{
+  font-size: 1rem;
 }
+
 
 .main-div{
   height: 100%;
 }
 button{
   font-size: 1vmax;
+}
+
+
+@media(width<=760px){
+
+  
+  .carousel-para{
+    font-size: .7rem;
+  }
+}
+@media(width<=650px){
+
+  
+  .carousel-para{
+    font-size: .6rem;
+  }
+
+}
+@media(width<=520px){
+
+  .carousel-para{
+   display: none;
+  }
+  .carousel-item{
+    height: 28vh;
+  }
 }

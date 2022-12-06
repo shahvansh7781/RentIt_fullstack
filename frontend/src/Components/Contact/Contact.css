@@ -108,6 +108,7 @@ body {
   padding-bottom: 1rem;
 }
 
+
 .form-control {
   width: 100%;
   border: 1.5px solid #c7c7c7;
@@ -232,6 +233,9 @@ body {
     width: 100%;
     margin: 0;
   }
+  .contact-form-div input{
+    margin: 0px;
+  }
   .map {
     margin: 0;
     height: 35vh;
@@ -250,7 +254,7 @@ body {
     margin-bottom: 3rem;
   }
   .contact-intro{
-    margin-top: -5vh;
+    margin-top: -15vh;
   }
 
   .contact-form {
