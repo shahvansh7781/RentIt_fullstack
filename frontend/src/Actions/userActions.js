@@ -60,3 +60,7 @@ export const logout = () => async (dispatch) => {
     dispatch({ type: "logoutFailure", payload: error.message });
   }
 };
+
+export const clearError = () => (dispatch) =>{
+  dispatch({type:"clearError"});
+}
