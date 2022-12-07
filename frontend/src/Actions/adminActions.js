@@ -12,3 +12,23 @@ export const getAllUsers = () => async (dispatch) => {
     });
   }
 };
+
+export const getAllBookings = () => async (dispatch) => {
+try {
+  dispatch({type:"getAllBookingsRequest"});
+  const {data} = await axios.get("/myapp/admin/bookings");
+  dispatch({type:"getAllBookingsSuccess",payload:data.allBookings})
+} catch (error) {
+  dispatch({type:"getAllBookingsFailure",payload:error.response.data.message})
+}
+}
+
+export const getAllCarsAdmin = () => async (dispatch) => {
+  try {
+    dispatch({type:"getAllCarsAdminRequest"});
+    const {data} = await axios.get("/myapp/cars");
+    dispatch({type:"getAllCarsAdminSuccess",payload:data.cars})
+  } catch (error) {
+    dispatch({type:"getAllCarsAdminFailure",payload:error.response.data.message})
+  }
+}

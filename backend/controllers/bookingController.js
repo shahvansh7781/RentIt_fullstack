@@ -43,6 +43,7 @@ exports.allBookings = catchAsyncErrors(async (req, res, next) => {
   }
   res.status(200).json({
     success: true,
-    bookings,
+    allBookings:bookings,
+    totalBookings:bookings.length
   });
 });

@@ -126,7 +126,7 @@ export const MainContainer = ({
 
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const { error,isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.user);
   const [loginDetails, setloginDetails] = useState({
     loginEmail: "",
     loginPassword: "",
@@ -137,14 +137,10 @@ export const MainContainer = ({
   };
   
   useEffect(() => {
-    if (error) {
-      alert(error);
-      dispatch(clearError());
-    }
     if (isAuthenticated) {
       navigate("/home");
     }
-  }, [error,isAuthenticated,dispatch,navigate])
+  }, [isAuthenticated,dispatch,navigate])
   
   const [registerDetails, setregisterDetails] = useState({
     registerName: "",

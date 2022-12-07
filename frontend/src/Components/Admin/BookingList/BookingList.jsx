@@ -11,11 +11,14 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { calculateNewValue } from "@testing-library/user-event/dist/utils";
 import Navbar from "../../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllBookings } from "../../../Actions/adminActions";
 
 export default function BookingList() {
   // const [data, setData] = useState(productRows);
-  const [cars, setCars] = useState([]);
-
+  // const [cars, setCars] = useState([]);
+const dispatch = useDispatch();
+const {bookings} = useSelector(state=>state.admin);
   const getCars = async () => {
     // const cars1 = [];
     // await axios.get("/myapp/cars").then((car) => {
@@ -33,13 +36,22 @@ export default function BookingList() {
     // });
   };
   useEffect(() => {
-    getCars();
-  }, []);
+  dispatch(getAllBookings());
+  }, [dispatch]);
 
-  const handleDelete = (id) => {
-    setCars(cars.filter((item) => item.id !== id));
-  };
-
+  // const handleDelete = (id) => {
+  //   setCars(cars.filter((item) => item.id !== id));
+  // };
+const rows = [];
+bookings && bookings.forEach(booking => {
+  let amt = `₹${booking.totalAmount}`
+  rows.push({
+    id:booking._id,
+carid:booking.carBooked,
+amount:amt,
+hours:booking.totalHours
+  })
+});
   const columns = [
     { field: "id", headerName: "Booking ID", minWidth: 180, flex: 0.2 },
     // {
@@ -55,7 +67,7 @@ export default function BookingList() {
     //   },
     // },
     {
-      field: "title",
+      field: "carid",
       headerName: "Car ID",
       minWidth: 180,
       flex: 0.2,
@@ -68,10 +80,10 @@ export default function BookingList() {
       //   )
       // },
     },
-    { field: "noPlate", headerName: "User ID", minWidth: 180, flex: 0.2 },
+    { field: "amount", headerName: "Amount", minWidth: 180, flex: 0.2 },
     {
-      field: "rent",
-      headerName: "Amount",
+      field: "hours",
+      headerName: "Total Hours",
       flex: 0.1,
       minWidth: 160,
     },
@@ -105,7 +117,7 @@ export default function BookingList() {
         <div className="productList">
           <DataGrid
             style={{ color: "#EEEEEE" }}
-            rows={cars}
+            rows={rows}
             disableSelectionOnClick
             columns={columns}
             autoHeight

@@ -15,7 +15,7 @@ import { getAllUsers } from "../../../Actions/adminActions";
 export default function UserList() {
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.admin);
-  console.log(users);
+  // console.log(users);
   // const handleDelete = (id) => {
   //   setData(data.filter((item) => item.id !== id));
   // };
@@ -54,8 +54,8 @@ export default function UserList() {
     {
       field: "name",
       headerName: "Name",
-      minWidth: 130,
-      flex: 0.2,
+      minWidth: 90,
+      flex: 0.1,
       // renderCell: (params) => {
       //   return (
       //     <div className='userListUser'>
@@ -65,7 +65,7 @@ export default function UserList() {
       //   )
       // },
     },
-    { field: "username", headerName: "Email-ID", minWidth: 150, flex: 0.1 },
+    { field: "username", headerName: "Email-ID", minWidth: 150, flex: 0.2 },
     {
       field: "role",
       headerName: "Role",
