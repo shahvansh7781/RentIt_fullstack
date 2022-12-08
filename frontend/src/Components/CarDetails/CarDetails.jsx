@@ -20,16 +20,16 @@ const CarDetails = () => {
   console.log(params);
   const dispatch = useDispatch();
   const { car, loading } = useSelector((state) => state.cars);
-  const { error } = useSelector((state) => state.booking);
-  const [from, setfrom] = useState();
-  const [to, setto] = useState();
+  // const { error,loadingb } = useSelector((state) => state.booking);
+  const [from, setfrom] = useState("");
+  const [to, setto] = useState("");
   const [totalHours, settotalHours] = useState();
   const [availibility, setavailibility] = useState();
 
   useEffect(() => {
     dispatch(getparticularCar(params.id));
   }, [dispatch, params.id]);
-  
+
   const selectedtimeSlots = (values) => {
     setfrom(moment(values[0]).format("MMM DD YYYY HH:mm"));
     setto(moment(values[1]).format("MMM DD YYYY HH:mm"));
@@ -38,7 +38,7 @@ const CarDetails = () => {
 
     const sFrom = moment(values[0]);
     const sTo = moment(values[1]);
-    if (car.bookedSlot.length===0) {
+    if (car.bookedSlot.length === 0) {
       setavailibility(true);
     } else {
       for (const bookedSlot of car.bookedSlot) {
@@ -66,11 +66,11 @@ const CarDetails = () => {
   //   }
   // };
   const handleBooking = () => {
-    dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent));
-    setfrom("");
-    setto("");
-    settotalHours("");
-    setavailibility(true);
+      dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent));
+      setfrom("");
+      setto("");
+      settotalHours("");
+      setavailibility(true);
   };
   return (
     <>

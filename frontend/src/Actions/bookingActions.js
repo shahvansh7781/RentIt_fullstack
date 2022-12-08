@@ -15,7 +15,12 @@ export const newBooking =
       }
       ,config);
       dispatch({type:"newbookingSuccess",payload:data.bookingDetails})
+      alert("Booking success")
     } catch (error) {
         dispatch({type:"newbookingFailure",payload:error.response.data.message})
+        alert(error.response.data.message)
     }
   };
+  export const clearError = () => (dispatch) =>{
+    dispatch({type:"clearError"});
+  }
