@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./BookingList.css";
 
 import { DataGrid } from "@mui/x-data-grid";
@@ -15,33 +14,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllBookings } from "../../../Actions/adminActions";
 
 export default function BookingList() {
-  // const [data, setData] = useState(productRows);
-  // const [cars, setCars] = useState([]);
+
 const dispatch = useDispatch();
 const {bookings} = useSelector(state=>state.admin);
-  const getCars = async () => {
-    // const cars1 = [];
-    // await axios.get("/myapp/cars").then((car) => {
-    //   Object.values(car.data)[1].map((e) => {
-    //     cars1.push({
-    //       id: e._id,
-    //       title: e.title,
-    //       noPlate: e.noPlate,
-    //       stock: e.stock,
-    //       rent: e.rent,
-    //       key:e._id
-    //     });
-    //   });
-    //   setCars(cars1);
-    // });
-  };
+
   useEffect(() => {
   dispatch(getAllBookings());
   }, [dispatch]);
 
-  // const handleDelete = (id) => {
-  //   setCars(cars.filter((item) => item.id !== id));
-  // };
 const rows = [];
 bookings && bookings.forEach(booking => {
   let amt = `₹${booking.totalAmount}`
@@ -54,18 +34,7 @@ hours:booking.totalHours
 });
   const columns = [
     { field: "id", headerName: "Booking ID", minWidth: 180, flex: 0.2 },
-    // {
-    //   field: "img",
-    //   headerName: "Image",
-    //   width: 100,
-    //   renderCell: (params) => {
-    //     return (
-    //       <div className="userListUser">
-    //         <img className="userListImg" src={params.row.img} alt="" />
-    //       </div>
-    //     );
-    //   },
-    // },
+    
     {
       field: "carid",
       headerName: "Car ID",

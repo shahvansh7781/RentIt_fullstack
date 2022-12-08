@@ -32,3 +32,13 @@ export const getAllCarsAdmin = () => async (dispatch) => {
     dispatch({type:"getAllCarsAdminFailure",payload:error.response.data.message})
   }
 }
+
+export const deleteCar = (id) => async (dispatch) => {
+try {
+  dispatch({type:"deleteCarRequest"});
+  const {data} = await axios.delete(`/myapp/admin/car/${id}`);
+  dispatch({type:"deleteCarSuccess",payload:data.message})
+} catch (error) {
+  dispatch({type:"deleteCarFailure",payload:error.response.data.message})
+}
+}

@@ -5,19 +5,20 @@ import "../Dashboard.css";
 import "../Sidebar/Sidebar.css";
 import { DataGrid } from "@mui/x-data-grid";
 
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch, useNavigate } from "react-router-dom";
 
 import { MdDeleteOutline } from "react-icons/md";
 import { calculateNewValue } from "@testing-library/user-event/dist/utils";
 import Navbar from "../../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCarsAdmin } from "../../../Actions/adminActions";
+import { deleteCar, getAllCarsAdmin } from "../../../Actions/adminActions";
 
 export default function CarList() {
   // const [data, setData] = useState(productRows);
   // const [cars, setCars] = useState([]);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
   const { cars } = useSelector((state) => state.admin);
   const getCars = async () => {
     // const cars1 = [];
@@ -39,13 +40,14 @@ export default function CarList() {
     dispatch(getAllCarsAdmin());
   }, [dispatch]);
 
-  // const handleDelete = (id) => {
-  //   setCars(cars.filter((item) => item.id !== id));
-  // };
+  const handleDelete = (id) => {
+    dispatch(deleteCar(id));
+    navigate("/admin/dashboard");
+  };
   const rows = [];
   cars &&
     cars.forEach((car) => {
-    let carRent = `₹${car.rent}/hr`
+      let carRent = `₹${car.rent}/hr`;
       rows.push({
         id: car._id,
         title: car.title,
@@ -54,18 +56,6 @@ export default function CarList() {
     });
   const columns = [
     { field: "id", headerName: "Car ID", minWidth: 200, flex: 0.3 },
-    // {
-    //   field: "img",
-    //   headerName: "Image",
-    //   width: 100,
-    //   renderCell: (params) => {
-    //     return (
-    //       <div className="userListUser">
-    //         <img className="userListImg" src={params.row.img} alt="" />
-    //       </div>
-    //     );
-    //   },
-    // },
     {
       field: "title",
       headerName: "Car Name",
@@ -100,7 +90,7 @@ export default function CarList() {
             <MdDeleteOutline
               className="productListDelete"
               size="1.5rem"
-              // onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row.id)}
             />
           </>
         );
