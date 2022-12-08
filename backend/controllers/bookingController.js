@@ -43,6 +43,19 @@ exports.allBookings = catchAsyncErrors(async (req, res, next) => {
   }
   res.status(200).json({
     success: true,
-    bookings,
+    allBookings:bookings,
+    totalBookings:bookings.length
+  });
+});
+
+// Get Individual Booking
+exports.particularBooking = catchAsyncErrors(async (req, res, next) => {
+  const booking = await Booking.find({user:req.user.id});
+  if (!booking) {
+    return next(new ErrorHandler("No bookings available", 500));
+  }
+  res.status(200).json({
+    success: true,
+    allBookings:booking,
   });
 });

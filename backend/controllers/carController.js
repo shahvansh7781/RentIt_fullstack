@@ -43,6 +43,7 @@ exports.getCars = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
       success: true,
       cars,
+      totalCars:cars.length
     });
   }
 });
@@ -121,14 +122,3 @@ exports.deleteCar = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Create new review or Update existing review
-
-exports.createReview = catchAsyncErrors(async (req, res, next) => {
-  const rating = ({ rating, feedback } = req.body);
-  const review = {
-    user: req.user._id,
-    name: req.user.name,
-    rating: Number(rating),
-    feedback,
-  };
-});

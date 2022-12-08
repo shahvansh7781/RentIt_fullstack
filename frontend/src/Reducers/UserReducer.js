@@ -2,6 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 const initialState = {
   isAuthenticated: false,
   user: null,
+  error:null
 };
 
 export const userReducer = createReducer(initialState, {
@@ -59,4 +60,7 @@ export const userReducer = createReducer(initialState, {
     state.error = action.payload;
     state.isAuthenticated = true;
   },
+  clearError:(state)=>{
+    state.error= null;
+  }
 });

@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CarList.css";
-import "../Dashboard.css"
-import "../Sidebar/Sidebar.css"
+import "../Dashboard.css";
+import "../Sidebar/Sidebar.css";
 import { DataGrid } from "@mui/x-data-grid";
 
+import { BrowserRouter as Router, Link, Route, Switch, useNavigate } from "react-router-dom";
 
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-
-import {MdDeleteOutline} from "react-icons/md";
+import { MdDeleteOutline } from "react-icons/md";
 import { calculateNewValue } from "@testing-library/user-event/dist/utils";
 import Navbar from "../../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCar, getAllCarsAdmin } from "../../../Actions/adminActions";
 
 export default function CarList() {
   // const [data, setData] = useState(productRows);
-  const [cars, setCars] = useState([]);
-
+  // const [cars, setCars] = useState([]);
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const { cars } = useSelector((state) => state.admin);
   const getCars = async () => {
     // const cars1 = [];
     // await axios.get("/myapp/cars").then((car) => {
@@ -34,32 +37,30 @@ export default function CarList() {
     // });
   };
   useEffect(() => {
-    getCars();
-  }, []);
+    dispatch(getAllCarsAdmin());
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    setCars(cars.filter((item) => item.id !== id));
+    dispatch(deleteCar(id));
+    navigate("/admin/dashboard");
   };
-
+  const rows = [];
+  cars &&
+    cars.forEach((car) => {
+      let carRent = `₹${car.rent}/hr`;
+      rows.push({
+        id: car._id,
+        title: car.title,
+        rent: carRent,
+      });
+    });
   const columns = [
-    { field: "id", headerName: "Car ID", minWidth: 200,flex:0.3 },
-    // {
-    //   field: "img",
-    //   headerName: "Image",
-    //   width: 100,
-    //   renderCell: (params) => {
-    //     return (
-    //       <div className="userListUser">
-    //         <img className="userListImg" src={params.row.img} alt="" />
-    //       </div>
-    //     );
-    //   },
-    // },
+    { field: "id", headerName: "Car ID", minWidth: 200, flex: 0.3 },
     {
       field: "title",
       headerName: "Car Name",
       minWidth: 130,
-      flex:0.2
+      flex: 0.2,
       // renderCell: (params) => {
       //   return (
       //     <div className='productListItem'>
@@ -72,7 +73,7 @@ export default function CarList() {
     {
       field: "rent",
       headerName: "Rent",
-flex:0.1,
+      flex: 0.1,
       minWidth: 140,
     },
     {
@@ -98,30 +99,30 @@ flex:0.1,
   ];
   return (
     <div style={{ width: "100%", backgroundColor: "#222831", height: "100vh" }}>
-        <Navbar/>
-        <div className="main-container2">
-            <div className="sidebar-container">
-                <SideBar/>
-            </div>
-    <div className="carList">
-      <div className="createProduct">
-        <Link to="/admin/car/new">
-          <button className="productAddButton">Create</button>
-        </Link>
-      </div>
-      <DataGrid
-        style={{ color: "#EEEEEE"}}
-        rows={cars}
-        disableSelectionOnClick
-        columns={columns}
-        autoHeight
-        // autoHeight
-        // pageSize={8}
-        // rowsPerPageOptions={[5]}
-        // checkboxSelection
-      />
-    </div>
+      <Navbar />
+      <div className="main-container2">
+        <div className="sidebar-container">
+          <SideBar />
         </div>
+        <div className="carList">
+          <div className="createProduct">
+            <Link to="/admin/car/new">
+              <button className="productAddButton">Create</button>
+            </Link>
+          </div>
+          <DataGrid
+            style={{ color: "#EEEEEE" }}
+            rows={rows}
+            disableSelectionOnClick
+            columns={columns}
+            autoHeight
+            // autoHeight
+            // pageSize={8}
+            // rowsPerPageOptions={[5]}
+            // checkboxSelection
+          />
+        </div>
+      </div>
     </div>
   );
 }

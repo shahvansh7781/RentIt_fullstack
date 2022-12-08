@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./Navbar.css";
@@ -53,10 +53,14 @@ const Navbar = () => {
               id="dropdown-basic-button"
               title={`Welcome ${user.name}`}
             >
-              <Dropdown.Item href="/myprofile/editprofile">My Profile</Dropdown.Item>
+              <NavLink to="/myprofile">
+              <Dropdown.Item href="/myprofile"> My Profile </Dropdown.Item>
+              </NavLink>
               <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
               <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
+              <NavLink to="/admin/dashboard">
               <Dropdown.Item href="/admin/dashboard">Dashboard</Dropdown.Item>
+              </NavLink>
             </DropdownButton>
           </li>
         </ul>
