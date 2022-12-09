@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Featured.css";
-import { Card } from "antd";
+// import { Card } from "antd";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
+// import { Card } from 'antd';
+import { useDispatch, useSelector } from "react-redux";
+import { getFeaturedCars } from "../../../Actions/carActions";
+import Card from "../../Card/Card";
+// import "../../Card/Card.css";
+
+const sliderAnimation={
+
+  hidden:{
+    opacity:0,
+    scale:0.8
+  },
+  visible:{
+    x:0,
+    scale:1,
+    opacity:1,
+    transition:{type:"tween",  
+        duration:1.5
+    }
+  }
+
+}
+const textAnimation = {
+ 
+  hidden: {
+    opacity: 0,
+    scale:.6
+  },
+
+  visible: {
+    opacity: 1,
+    scale:1,
+    transition: { delay: 0.15, duration: 2.5, type: "spring"},
+  },
+};
+
+
+
 const Featured = () => {
   var settings = {
     dots: true,
@@ -13,22 +52,48 @@ const Featured = () => {
     autoplaySpeed: 2000,
     pauseOnHover: true,
   };
+  const dispatch = useDispatch();
+  const {fCars} = useSelector(state=>state.cars)
+  useEffect(() => {
+    
+  dispatch(getFeaturedCars());
+    
+  }, [dispatch])
+  
   return (
     <>
       <div style={{ backgroundColor: "#f8f9fa" }}>
-        <div
+        <motion.div
+          variants={textAnimation}
+          initial="hidden"
+          whileInView={"visible"}
+          viewport={{once:false,amount:0.25}}
+
           style={{
             textAlign: "center",
             marginTop: "3vmax",
             paddingTop: "40px",
           }}
         >
-          <h4 style={{ color: "#03a8b0" }}>What We Offer</h4>
+          <h4 style={{ color: "#3591ca" }}>What We Offer</h4>
           <h1>Featured Vehicles</h1>
-        </div>
-        <div className="slider-div">
+        </motion.div>
+        <motion.div 
+          variants={sliderAnimation}
+          initial="hidden"
+          whileInView={"visible"}
+          viewport={{once:false,amount:0.35}}
+
+        className="slider-div">
           <Slider {...settings} className="my-slider">
-            <div>
+            {
+              fCars && fCars.map((fCar)=>{
+                 return <div>
+                  <Card key={fCar._id} cars={fCar} isFeatured={true}/>
+                 </div>
+              })
+            }
+            {/* <div>
               <Card
                 hoverable
                 className="card-styles"
@@ -159,9 +224,9 @@ const Featured = () => {
                   </div>
                 </div>
               </Card>
-            </div>
+            </div> */}
           </Slider>
-        </div>
+        </motion.div>
       </div>
     </>
   );

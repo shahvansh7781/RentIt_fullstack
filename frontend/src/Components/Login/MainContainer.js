@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Icon } from "react-icons-kit";
 import { target } from "react-icons-kit/feather/target";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import "./Main.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { login, register } from "../../Actions/userActions";
+import { clearError, login, register } from "../../Actions/userActions";
 
 // import image-1 logo or jpg
 // import image-2
@@ -41,14 +41,14 @@ const rightSideVariants = {
   },
 };
 
-// const toggleButtonVariants = {
-//   hover: {
-//     scale: 0.9,
-//     transition: {
-//       yoyo: Infinity, // toggle type
-//     },
-//   },
-// };
+const toggleButtonVariants = {
+  hover: {
+    scale: 0.9,
+    transition: {
+      yoyo: Infinity, // toggle type
+    },
+  },
+};
 
 const otherButtonVariants = {
   hover: {
@@ -90,6 +90,8 @@ const sideAnimationVariants = {
   },
 };
 
+
+
 export const MainContainer = ({
   container,
   changeContainerState,
@@ -121,6 +123,7 @@ export const MainContainer = ({
   //     setPwd('');
   //     setSuccess(true);
   // }
+
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -133,9 +136,12 @@ export const MainContainer = ({
     dispatch(login(loginDetails.loginEmail, loginDetails.loginPassword));
   };
   
-  if (isAuthenticated) {
-    navigate("/home");
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated,dispatch,navigate])
+  
   const [registerDetails, setregisterDetails] = useState({
     registerName: "",
     registerEmail: "",
@@ -155,6 +161,7 @@ export const MainContainer = ({
     );
   };
   return (
+    
     <div className="main-box">
       <motion.div
         className={logoClass}
@@ -162,10 +169,13 @@ export const MainContainer = ({
         initial="hidden"
         animate="visible"
       >
-        <div className="icon">
+        
+        <div className="icon">   
           <Icon icon={target} size={24} />
         </div>
-        <div className="logo-text">Rent-It</div>
+        <NavLink to="/" >
+          <div className="logo-text">Rent-IT</div>
+        </NavLink>
       </motion.div>
 
       {/* 
@@ -201,6 +211,7 @@ export const MainContainer = ({
             </>
         )}
      */}
+     
       {container === "logined" && (
         <>
           {/*                 
@@ -228,7 +239,6 @@ export const MainContainer = ({
                   type={"name"}
                   placeholder="Email"
                   id="login-username"
-                  // ref={userRef}
                   autoComplete="on"
                   onChange={(e) =>
                     setloginDetails({
@@ -274,18 +284,43 @@ export const MainContainer = ({
 
             <p>Or Sign In Using</p>
             {/* <h1>Sign In Using</h1> */}
+
             <div className="signin-icons">
-              <Link to="" className="icon facebook">
-                <i className="fab fa-facebook-f"></i>
-              </Link>
+              <motion.div
+                variants={toggleButtonVariants}
+                whileHover="hover"
+                whileTap={"pressed"}
+                >
+                <Link to="" className="icon facebook">
+                  <i className="fab fa-facebook-f"></i>
+                </Link>
 
-              <Link href="#" className="icon google">
-                <i className="fab fa-google"></i>
-              </Link>
+              </motion.div>
 
-              <Link href="#" className="icon twitter">
-                <i className="fab fa-twitter"></i>
-              </Link>
+
+              <motion.div
+                variants={toggleButtonVariants}
+                whileHover="hover"
+                whileTap={"pressed"}
+                >      
+                  <Link href="#" className="icon google">
+                    <i className="fab fa-google"></i>
+                  </Link>
+
+              </motion.div>
+
+              <motion.div
+                variants={toggleButtonVariants}
+                whileHover="hover"
+                whileTap={"pressed"}
+                >
+
+                  <Link href="#" className="icon twitter">
+                    <i className="fab fa-twitter"></i>
+                  </Link>
+
+              </motion.div>
+
             </div>
           </motion.div>
 
@@ -380,6 +415,7 @@ export const MainContainer = ({
                   type={"password"}
                   placeholder="Password"
                   value={registerDetails.registerPassword}
+                  minLength="8"
                   onChange={(e) => {
                     setregisterDetails({
                       ...registerDetails,
@@ -422,17 +458,37 @@ export const MainContainer = ({
 
             <p>Or Sign Up With</p>
             <div className="signin-icons">
-              <Link href="#" className="icon facebook">
-                <i className="fab fa-facebook-f"></i>
-              </Link>
 
-              <Link href="#" className="icon google">
-                <i className="fab fa-google"></i>
-              </Link>
+              <motion.div
+                  variants={toggleButtonVariants}
+                  whileHover="hover"
+                  whileTap={"pressed"}
+                  >
+                  <Link href="#" className="icon facebook">
+                    <i className="fab fa-facebook-f"></i>
+                  </Link>
+              </motion.div>
 
-              <Link href="#" className="icon twitter">
-                <i className="fab fa-twitter"></i>
-              </Link>
+               <motion.div
+                  variants={toggleButtonVariants}
+                  whileHover="hover"
+                  whileTap={"pressed"} 
+                  >   
+                  <Link href="#" className="icon google">
+                    <i className="fab fa-google"></i>
+                  </Link>
+              </motion.div>
+
+              <motion.div
+                    variants={toggleButtonVariants}
+                    whileHover="hover"
+                    whileTap={"pressed"}
+                  >
+                  <Link href="#" className="icon twitter">
+                    <i className="fab fa-twitter"></i>
+                  </Link>
+              </motion.div>
+
             </div>
           </motion.div>
         </>

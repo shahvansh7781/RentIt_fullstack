@@ -2,10 +2,12 @@
     width: 59vmax;
   }
   .slider-div {
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 40px;
+    padding-top: 2vmax;
+    padding-bottom: 6vmax;
     width: 100%;
   }
   .card-styles {
@@ -16,7 +18,7 @@
     color: #eeeeee;
     font-size: 0.9vmax;
     padding: 0.6vmax 1vmax;
-    background-color: #00adb5;
+    background-color: #3591ca;
     text-decoration: none;
   }
   .card-button:hover{
@@ -31,4 +33,7 @@
   }
   .card-div-h5{
       font-size: 1.1vmax;
+  }
+  .card-div {
+    overflow: hidden;
   }

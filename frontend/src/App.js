@@ -3,16 +3,27 @@ import { Routes, Route } from "react-router-dom";
 // import Navbar from "./Components/Navbar/Navbar";
 import Landing from "./Components/LandingPage/Landing";
 import Home from "./Components/Home/Home";
-import Cards from "./Components/Cars/Cards";
+import Cars from "./Components/Cars/Cars";
+import Contact from "./Components/Contact/Contact";
 import { MainContainer } from "./Components/Login/MainContainer";
-import { useState,useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./Actions/userActions";
+import Service from "./Components/Services/Service";
+import CarDetails from "./Components/CarDetails/CarDetails";
+import Dashboard from "./Components/Admin/Dashboard";
+import UserList from "./Components/Admin/UserList/UserList";
+import CarList from "./Components/Admin/CarList/CarList";
+import BookingList from "./Components/Admin/BookingList/BookingList";
+import EditProfile from "./Components/MyProfile/EditProfile";
 
 function App() {
+  
   const dispatch = useDispatch();
+  const {user} = useSelector(state=>state.user)
   const [container, setContainer] = useState("logined");
   const [logoClass, setLogoClass] = useState("logo blue");
+
   const changeContainerState = () => {
     if (container === "logined") {
       setContainer("registered");
@@ -21,19 +32,22 @@ function App() {
       setContainer("logined");
       setLogoClass("logo blue");
     }
+
+    if(container==="myprofile"){
+      setContainer("editprofile");
+    }
   };
   useEffect(() => {
-   dispatch(loadUser());
-  }, [])
-  
+    dispatch(loadUser());
+  }, [dispatch]);
+
   return (
     <>
       {/* <Navbar/> */}
-
       <Routes>
         <Route exact path="/" element={<Landing />}></Route>
         <Route exact path="/home" element={<Home />}></Route>
-        <Route exact path="/cars" element={<Cards />}></Route>
+        <Route exact path="/cars" element={<Cars />}></Route>
         <Route
           exact
           path="/login"
@@ -45,6 +59,15 @@ function App() {
             />
           }
         ></Route>
+
+        <Route exact path="/contact" element={<Contact />}></Route>
+        <Route exact path="/services" element={<Service />}></Route>
+        <Route exact path="/car/:id" element={<CarDetails/>}></Route>
+        <Route exact path="/myprofile" element={<EditProfile />}></Route>
+        <Route exact path="/admin/dashboard" element={<Dashboard/>}></Route>
+        <Route exact path="/admin/dashboard/users" element={<UserList/>}></Route>
+        <Route exact path="/admin/dashboard/cars" element={<CarList/>}></Route>
+        <Route exact path="/admin/dashboard/bookings" element={<BookingList/>}></Route>
       </Routes>
     </>
   );

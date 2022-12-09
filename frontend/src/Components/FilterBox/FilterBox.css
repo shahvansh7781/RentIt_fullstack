@@ -1,9 +1,11 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&family=Rubik+Dirt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&family=Rubik+Dirt&display=swap");
 .FilterBox {
-  background-color: white;
-  width: 95%;
-  height: 98%;
-  padding: 5px;
+  /* background-color: #3c3c3c; */
+  background-color: #222831;
+  width: 25%;
+  /* height: 100vh; */
+  height: inherit;
+  padding: 5px 15px;
   margin: 7px;
   border: none;
   border-radius: 7px;
@@ -11,7 +13,8 @@
   overflow-y: auto;
 }
 .FilterBox .Heading {
-  color: #485ccb;
+  /* color: #ffa31a; */
+  color:white;
   font-weight: 700;
   padding: 10px;
   display: flex;
@@ -39,4 +42,4 @@
 .FilterBox .CheckBox-group .CheckBox label {
   font-size: 25px;
   color: #131416;
-}# sourceMappingURL=FilterBox.css.map */
+}/*# sourceMappingURL=FilterBox.css.map */

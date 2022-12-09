@@ -13,6 +13,43 @@
   color: #eeeeee;
   font-size: 1.2vmax;
   padding: 1vmax 2vmax;
-  background-color: #00adb5;
+  background-color: #3591ca;
   text-decoration: none;
+}
+.carousel-para{
+  font-size: 1rem;
+}
+
+
+.main-div{
+  height: 100%;
+}
+button{
+  font-size: 1vmax;
+}
+
+
+@media(width<=760px){
+
+  
+  .carousel-para{
+    font-size: .7rem;
+  }
+}
+@media(width<=650px){
+
+  
+  .carousel-para{
+    font-size: .6rem;
+  }
+
+}
+@media(width<=520px){
+
+  .carousel-para{
+   display: none;
+  }
+  .carousel-item{
+    height: 28vh;
+  }
 }

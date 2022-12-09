@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-ul{
+.my-nav-style{
     display: flex;
-    gap: 4vmax;
+    gap: 4.2vmax;
     justify-content: center;
     align-items: center;
 }
-ul > li{
+.my-nav-style li{
     list-style: none;
 }
+
 .nav-links{
     text-decoration: none;
     font-size: 1vmax;
@@ -28,7 +29,67 @@ ul > li{
 }
 .nav-links:hover{
     color: white;
+    font-size: 1.15vmax;
+    transition: .5s all ease-in-out;
+    border-bottom: 1.5px solid #44b7ff;
 }
 .fa-cog {
     color: white
+  }
+
+  
+  @media (max-width:760px){
+
+    ul{
+        gap: 4vmax;
+    }
+    #dropdown-basic-button{
+        font-size: .7rem;
+        padding: 6px;
+    }
+  }
+
+    
+  @media (max-width:630px){
+    #dropdown-basic-button{
+        font-size: .6rem;
+        padding: 3px;
+    }
+  }
+ 
+      
+  @media (max-width:550px){
+    #dropdown-basic-button{
+        font-size: .6rem;
+        padding: 2.5px;
+    }
+  }
+
+  @media (max-width:530px){
+
+    .my-nav-style{
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 2rem;
+    }
+    .nav-links{
+        /* text-decoration: none; */
+        font-size: 2.3vh;
+        color: #a7a9ad;
+    }
+    .logo-img{
+        width: 15vh;
+        height: 12vh;
+    }
+    #dropdown-basic-button{
+        
+        font-weight:400;
+        padding:0.375rem 0.75rem;
+        font-size: 1rem;
+    }  
+    
+    .nav-links:hover{
+        font-size: 1.3rem;
+    }
   }
