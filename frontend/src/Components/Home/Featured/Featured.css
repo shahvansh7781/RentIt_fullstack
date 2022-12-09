@@ -2,6 +2,7 @@
     width: 59vmax;
   }
   .slider-div {
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-content: center;

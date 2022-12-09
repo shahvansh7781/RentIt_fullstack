@@ -12,12 +12,14 @@ import "./Landing.css"
 // viewport={{once:false,amount:0.7}}
 // transition={{staggerChildren:0.5}}
 
+
 const navAnimation={
 
   hidden:{
     x:1400,
     opacity:0
   },
+  
   visible:{
     opacity:1,
     x:0,

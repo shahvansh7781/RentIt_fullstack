@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Icon } from "react-icons-kit";
 import { target } from "react-icons-kit/feather/target";
 import { motion } from "framer-motion";
@@ -7,7 +7,7 @@ import "./Main.css";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { login, register } from "../../Actions/userActions";
+import { clearError, login, register } from "../../Actions/userActions";
 
 // import image-1 logo or jpg
 // import image-2
@@ -90,6 +90,8 @@ const sideAnimationVariants = {
   },
 };
 
+
+
 export const MainContainer = ({
   container,
   changeContainerState,
@@ -134,9 +136,12 @@ export const MainContainer = ({
     dispatch(login(loginDetails.loginEmail, loginDetails.loginPassword));
   };
   
-  if (isAuthenticated) {
-    navigate("/home");
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated,dispatch,navigate])
+  
   const [registerDetails, setregisterDetails] = useState({
     registerName: "",
     registerEmail: "",
@@ -156,6 +161,7 @@ export const MainContainer = ({
     );
   };
   return (
+    
     <div className="main-box">
       <motion.div
         className={logoClass}
@@ -205,6 +211,7 @@ export const MainContainer = ({
             </>
         )}
      */}
+     
       {container === "logined" && (
         <>
           {/*                 

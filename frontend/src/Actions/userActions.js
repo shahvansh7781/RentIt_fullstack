@@ -13,7 +13,8 @@ export const login = (username, password) => async (dispatch) => {
     );
     dispatch({ type: "loginSuccess", payload: data.user });
   } catch (error) {
-    dispatch({ type: "loginFailure", payload: error.message });
+    dispatch({ type: "loginFailure", payload: error.response.data });
+    alert("Invalid Email or Password");
   }
 };
 
@@ -60,3 +61,7 @@ export const logout = () => async (dispatch) => {
     dispatch({ type: "logoutFailure", payload: error.message });
   }
 };
+
+export const clearError = () => (dispatch) =>{
+  dispatch({type:"clearError"});
+}

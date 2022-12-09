@@ -1,11 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./Navbar.css";
 import logo from "../../images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Actions/userActions";
+
 const Navbar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
   const { user } = useSelector((state) => state.user);
@@ -16,7 +17,7 @@ const Navbar = () => {
   return (
     <>
       {isAuthenticated && user.role === 'admin' ? (
-        <ul style={{ marginBottom: 0 }}>
+        <ul style={{ marginBottom: 0 }} className="my-nav-style">
           <li>
             <NavLink to="/">
               <img src={logo} alt="" srcset="" className="logo-img" />
@@ -52,15 +53,19 @@ const Navbar = () => {
               id="dropdown-basic-button"
               title={`Welcome ${user.name}`}
             >
-              <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
+              <NavLink to="/myprofile">
+              <Dropdown.Item href="/myprofile"> My Profile </Dropdown.Item>
+              </NavLink>
               <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
               <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
+              <NavLink to="/admin/dashboard">
               <Dropdown.Item href="/admin/dashboard">Dashboard</Dropdown.Item>
+              </NavLink>
             </DropdownButton>
           </li>
         </ul>
       ) : isAuthenticated ? (
-<ul style={{ marginBottom: 0 }}>
+<ul style={{ marginBottom: 0 }} className="my-nav-style">
           <li>
             <NavLink to="/">
               <img src={logo} alt="" srcset="" className="logo-img" />
@@ -96,14 +101,14 @@ const Navbar = () => {
               id="dropdown-basic-button"
               title={`Welcome ${user.name}`}
             >
-              <Dropdown.Item href="#/action-1">My Profile</Dropdown.Item>
+              <Dropdown.Item href="/myprofile/editprofile">My Profile</Dropdown.Item>
               <Dropdown.Item href="#/action-2">My Bookings</Dropdown.Item>
               <Dropdown.Item onClick={logoutHandler}>Logout</Dropdown.Item>
             </DropdownButton>
           </li>
         </ul>
       ) : (
-        <ul style={{ marginBottom: 0 }}>
+        <ul style={{ marginBottom: 0 }} className="my-nav-style">
           <li>
             <NavLink to="/">
               <img src={logo} alt="" srcset="" className="logo-img" />

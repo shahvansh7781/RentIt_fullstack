@@ -2,28 +2,42 @@ import React, { useState, useEffect } from "react";
 import "./UserList.css";
 
 import { DataGrid } from "@mui/x-data-grid";
-import { userRows } from "../data";
 
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
-import {MdDeleteOutline} from "react-icons/md";
+import { MdDeleteOutline } from "react-icons/md";
 import Navbar from "../../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
-import "../Dashboard.css"
-import "../Sidebar/Sidebar.css"
+import "../Dashboard.css";
+import "../Sidebar/Sidebar.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllUsers } from "../../../Actions/adminActions";
 export default function UserList() {
-  const [data, setData] = useState(userRows);
-
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+  const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.admin);
+  // console.log(users);
+  // const handleDelete = (id) => {
+  //   setData(data.filter((item) => item.id !== id));
+  // };
 
   // const array = []
 
   // const newData = array.concat(search(data))
-
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, [dispatch]);
+  const rows = [];
+  users &&
+    users.forEach((user) => {
+      rows.push({
+        id: user._id,
+        name: user.name,
+        username: user.username,
+        role: user.role,
+      });
+    });
   const columns = [
-    { field: "id", headerName: "User ID", minWidth: 150,flex:0.2 },
+    { field: "id", headerName: "User ID", minWidth: 150, flex: 0.2 },
     // {
     //   field: "avtar",
     //   headerName: "Profile",
@@ -38,10 +52,10 @@ export default function UserList() {
     // },
 
     {
-      field: "username",
+      field: "name",
       headerName: "Name",
-      minWidth: 130,
-      flex:0.2
+      minWidth: 90,
+      flex: 0.1,
       // renderCell: (params) => {
       //   return (
       //     <div className='userListUser'>
@@ -51,18 +65,18 @@ export default function UserList() {
       //   )
       // },
     },
-    { field: "email", headerName: "Email-ID", minWidth: 150,flex:0.1 },
+    { field: "username", headerName: "Email-ID", minWidth: 150, flex: 0.2 },
     {
       field: "role",
       headerName: "Role",
-      flex:0.1,
+      flex: 0.1,
       minWidth: 90,
     },
 
     {
       field: "action",
       headerName: "Action",
-      flex:0.2,
+      flex: 0.2,
       minWidth: 150,
       renderCell: (params) => {
         return (
@@ -74,7 +88,7 @@ export default function UserList() {
             <MdDeleteOutline
               className="userListDelete"
               size="1.5rem"
-              onClick={() => handleDelete(params.row.id)}
+              // onClick={() => handleDelete(params.row.id)}
             />
           </>
         );
@@ -92,14 +106,13 @@ export default function UserList() {
 
   return (
     <div style={{ width: "100%", backgroundColor: "#222831", height: "100vh" }}>
-        <Navbar/>
-        <div className="main-container2">
-
-    <div className="sidebar-container">
-          <SideBar/>
+      <Navbar />
+      <div className="main-container2">
+        <div className="sidebar-container">
+          <SideBar />
         </div>
-    <div className="userList">
-      {/* <div className='search'>
+        <div className="userList">
+          {/* <div className='search'>
         <div className='searchRight'>
           <input
             type='text'
@@ -112,19 +125,19 @@ export default function UserList() {
           <Search className='searchIcon' />
         </div>
       </div> */}
-      {/* console.log(Search(data)) */}
-      <DataGrid
-        style={{ color: "#EEEEEE" }}
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        // pageSize={8}
-        // rowsPerPageOptions={[5]}
-        // checkboxSelection
-        autoHeight
-      />
-    </div>
+          {/* console.log(Search(data)) */}
+          <DataGrid
+            style={{ color: "#EEEEEE" }}
+            rows={rows}
+            disableSelectionOnClick
+            columns={columns}
+            // pageSize={8}
+            // rowsPerPageOptions={[5]}
+            // checkboxSelection
+            autoHeight
+          />
         </div>
+      </div>
     </div>
   );
 }
