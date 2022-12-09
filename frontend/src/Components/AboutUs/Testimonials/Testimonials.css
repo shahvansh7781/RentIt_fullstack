@@ -12,10 +12,10 @@
   gap: 2rem;
   flex-direction: column;
   text-transform: uppercase;
-  color: #00abb3;
+  color: #3591ca;
 }
 .left-t > :nth-child(1) {
-  color: #00abb3;
+  color: #3591ca;
   font-weight: bold;
 }
 .left-t > :nth-child(2),
@@ -40,13 +40,13 @@
   height: 17rem;
   object-fit: cover;
   right: 8rem;
-  top: -2rem;
+  top: 2rem;
 }
 .right-t > :nth-child(1) {
   position: absolute;
   width: 15rem;
   height: 17rem;
-  border: 2px solid #00abb3;
+  border: 2px solid #3591ca;
   background-color: transparent;
   right: 9rem;
   top: 0.9rem;
@@ -56,7 +56,7 @@
   width: 15rem;
   height: 17rem;
 
-  background-color: #00abb3;
+  background-color: #3591ca;
   right: 7rem;
   top: 4rem;
 }
@@ -68,6 +68,7 @@
   left: 3rem;
   cursor: pointer;
 }
+
 
 @media screen and (max-width: 900px) {
   .testimonials {

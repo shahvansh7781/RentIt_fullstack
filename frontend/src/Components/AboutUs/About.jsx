@@ -4,17 +4,22 @@ import './About.css'
 import { motion } from 'framer-motion'
 // import Footer from '../Footer/Footer'
 import Counters from './Counters/Counters'
+import Navbar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
+import Background from './bg.webp'
 // import Counters from '../Counters/Counters'
+
 
 const About = () => {
   const transition = { type: 'spring', duration: 3 }
   return (
     <div className='aboutUs'>
+      <Navbar />
       <div className='parallax'>
-        <header>
+        <header style={{ backgroundImage: `url(${Background})` }}>
           <div className='text'>
-            <h1>RentIt</h1>
-            <h1>About Us</h1>
+            <h1 style={{ color: 'white' }}>RentIt</h1>
+            <h1 style={{ color: 'white' }}>About Us</h1>
           </div>
         </header>
       </div>
@@ -70,7 +75,7 @@ const About = () => {
       <br></br>
       <hr></hr>
 
-      {/* <Footer></Footer> */}
+      <Footer />
     </div>
   )
 }

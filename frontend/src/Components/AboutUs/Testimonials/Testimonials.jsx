@@ -70,7 +70,7 @@ const Testimonials = () => {
                 ? setSelected(tLength - 1)
                 : setSelected((prev) => prev - 1)
             }}
-            style={{ color: '#00ABB3', height: '1.7rem' }}
+            style={{ color: '#3591ca', height: '1.7rem' }}
           />
           <ArrowForwardIosIcon
             onClick={() => {
@@ -78,7 +78,7 @@ const Testimonials = () => {
                 ? setSelected(0)
                 : setSelected((prev) => prev + 1)
             }}
-            style={{ color: '#00ABB3', height: '1.7rem' }}
+            style={{ color: '#3591ca', height: '1.7rem' }}
           />
         </div>
       </div>
