@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const newBooking =
-  (carBooked, bookedSlot, totalHours, totalAmount) => async (dispatch) => {
+  (carBooked, bookedSlot, totalHours, totalAmount,token) => async (dispatch) => {
     try {
       dispatch({ type: "newbookingRequest" });
       const config = { headers: { "Content-Type": "application/json" } };
@@ -11,7 +11,8 @@ export const newBooking =
         carBooked,
        bookedSlot,
         totalHours,
-        totalAmount
+        totalAmount,
+        token
       }
       ,config);
       dispatch({type:"newbookingSuccess",payload:data.bookingDetails})
