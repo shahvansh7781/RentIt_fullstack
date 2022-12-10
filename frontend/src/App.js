@@ -16,6 +16,7 @@ import UserList from "./Components/Admin/UserList/UserList";
 import CarList from "./Components/Admin/CarList/CarList";
 import BookingList from "./Components/Admin/BookingList/BookingList";
 import EditProfile from "./Components/MyProfile/EditProfile";
+import About from "./Components/AboutUs/About";
 
 function App() {
   
@@ -45,12 +46,12 @@ function App() {
     <>
       {/* <Navbar/> */}
       <Routes>
-        <Route exact path="/" element={<Landing />}></Route>
-        <Route exact path="/home" element={<Home />}></Route>
-        <Route exact path="/cars" element={<Cars />}></Route>
+        <Route exact path='/' element={<Landing />}></Route>
+        <Route exact path='/home' element={<Home />}></Route>
+        <Route exact path='/cars' element={<Cars />}></Route>
         <Route
           exact
-          path="/login"
+          path='/login'
           element={
             <MainContainer
               container={container}
@@ -60,17 +61,26 @@ function App() {
           }
         ></Route>
 
-        <Route exact path="/contact" element={<Contact />}></Route>
-        <Route exact path="/services" element={<Service />}></Route>
-        <Route exact path="/car/:id" element={<CarDetails/>}></Route>
-        <Route exact path="/myprofile" element={<EditProfile />}></Route>
-        <Route exact path="/admin/dashboard" element={<Dashboard/>}></Route>
-        <Route exact path="/admin/dashboard/users" element={<UserList/>}></Route>
-        <Route exact path="/admin/dashboard/cars" element={<CarList/>}></Route>
-        <Route exact path="/admin/dashboard/bookings" element={<BookingList/>}></Route>
+        <Route exact path='/contact' element={<Contact />}></Route>
+        <Route exact path='/about' element={<About/>}></Route>
+        <Route exact path='/services' element={<Service />}></Route>
+        <Route exact path='/car/:id' element={<CarDetails />}></Route>
+        <Route exact path='/myprofile' element={<EditProfile />}></Route>
+        <Route exact path='/admin/dashboard' element={<Dashboard />}></Route>
+        <Route
+          exact
+          path='/admin/dashboard/users'
+          element={<UserList />}
+        ></Route>
+        <Route exact path='/admin/dashboard/cars' element={<CarList />}></Route>
+        <Route
+          exact
+          path='/admin/dashboard/bookings'
+          element={<BookingList />}
+        ></Route>
       </Routes>
     </>
-  );
+  )
 }
 
 export default App;
