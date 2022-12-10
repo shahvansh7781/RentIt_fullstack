@@ -27,8 +27,8 @@
     color: rgb(232, 70, 70);
     cursor: pointer;
   }
-  svg {
-    /* color: #EEEEEE; */
+    svg {
+     /* color: #EEEEEE;  */
   }
   .search {
     display: flex;

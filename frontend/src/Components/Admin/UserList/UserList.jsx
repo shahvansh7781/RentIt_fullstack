@@ -133,6 +133,7 @@ export default function UserList() {
             rows={rows}
             disableSelectionOnClick
             columns={columns}
+           
             // pageSize={8}
             // rowsPerPageOptions={[5]}
             // checkboxSelection
