@@ -7,21 +7,66 @@ import Counters from './Counters/Counters'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import Background from './bg.webp'
+import { Link } from 'react-router-dom'
 // import Counters from '../Counters/Counters'
+
+const textAnimation = {
+  hidden: {
+    y: 400,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    x: 0,
+    opacity: 1,
+    transition: { type: 'spring', bounce: 0.4, duration: 6 },
+  },
+}
+const pagesAnimation = {
+  hidden: {
+    opacity: 0,
+    x: -400,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { delay: 0.15, duration: 2.5, type: 'spring' },
+  },
+}
+
 
 
 const About = () => {
   const transition = { type: 'spring', duration: 3 }
   return (
-    <div className='aboutUs'>
-      <Navbar />
+    <motion.div
+      variants={pagesAnimation}
+      initial='hidden'
+      animate='visible'
+      className='aboutUs'
+    >
       <div className='parallax'>
-        <header style={{ backgroundImage: `url(${Background})` }}>
-          <div className='text'>
-            <h1 style={{ color: 'white' }}>RentIt</h1>
-            <h1 style={{ color: 'white' }}>About Us</h1>
-          </div>
-        </header>
+        {/* style={{ backgroundImage: `url(${Background}) norepeat` }} */}
+        <div
+          variants={pagesAnimation}
+          initial='hidden'
+          animate='visible'
+          className='bg'
+        >
+          <Navbar />
+          <header>
+            <motion.div
+              variants={textAnimation}
+              initial='hidden'
+              animate='visible'
+              className='text'
+            >
+              <h1 style={{ color: 'white' }}>RentIt</h1>
+              <h1 style={{ color: 'white' }}>About Us</h1>
+            </motion.div>
+          </header>
+        </div>
       </div>
       <Counters></Counters>
 
@@ -58,7 +103,9 @@ const About = () => {
               place and supplies it with the necessary regelialia. It is a
               paradisematic country, in which roasted parts of sentences fly
               into your mouth.<br></br>
-              <button>Search Vehicle</button>
+              <Link to='/cars'>
+                <button>Book A Car</button>
+              </Link>
             </motion.p>
           </div>
         </div>
@@ -76,7 +123,7 @@ const About = () => {
       <hr></hr>
 
       <Footer />
-    </div>
+    </motion.div>
   )
 }
 
