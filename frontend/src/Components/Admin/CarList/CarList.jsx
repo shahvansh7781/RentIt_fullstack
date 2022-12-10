@@ -83,7 +83,7 @@ export default function CarList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
+            <Link to={"/car/" + params.row.id}>
               <button className="productListEdit">Edit</button>
             </Link>
 
@@ -111,7 +111,7 @@ export default function CarList() {
             </Link>
           </div>
           <DataGrid
-            style={{ color: "#EEEEEE" }}
+            style={{ color: "#EEEEEE",fontSize:"0.85vmax" }}
             rows={rows}
             disableSelectionOnClick
             columns={columns}

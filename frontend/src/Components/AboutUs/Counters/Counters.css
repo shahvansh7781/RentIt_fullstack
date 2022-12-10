@@ -1,0 +1,30 @@
+.counter {
+  padding: 2rem;
+  position: relative;
+}
+
+.counter-1,
+.counter-2 {
+  display: flex;
+  background-color: #3591ca;
+}
+.count-1,
+.count-2,
+.count-3,
+.count-4 {
+  width: 50%;
+  text-align: center;
+}
+.count-1:hover,
+.count-2:hover,
+.count-3:hover,
+.count-4:hover {
+  background-color: rgb(19, 124, 156);
+}
+.number {
+  font-weight: 400;
+  font-size: 3rem;
+  color: white;
+  display: inline-block;
+  white-space: nowrap;
+}

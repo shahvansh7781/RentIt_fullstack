@@ -4,17 +4,17 @@ import "./BookingList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import "../Dashboard.css";
 import "../Sidebar/Sidebar.css";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch, useNavigate } from "react-router-dom";
 
-// import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { MdDeleteOutline } from "react-icons/md";
 import { calculateNewValue } from "@testing-library/user-event/dist/utils";
 import Navbar from "../../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBookings } from "../../../Actions/adminActions";
+import { deleteBooking, getAllBookings } from "../../../Actions/adminActions";
 
 export default function BookingList() {
-
+const navigate = useNavigate();
 const dispatch = useDispatch();
 const {bookings} = useSelector(state=>state.admin);
 
@@ -27,18 +27,24 @@ bookings && bookings.forEach(booking => {
   let amt = `₹${booking.totalAmount}`
   rows.push({
     id:booking._id,
-carid:booking.carBooked,
+transactionid:booking.transactionId,
 amount:amt,
+from:booking.bookedSlot.from,
+to:booking.bookedSlot.to,
 hours:booking.totalHours
   })
 });
+const handleDelete = (id) => {
+dispatch(deleteBooking(id));
+navigate("/admin/dashboard");
+}
   const columns = [
     { field: "id", headerName: "Booking ID", minWidth: 180, flex: 0.2 },
     
     {
-      field: "carid",
-      headerName: "Car ID",
-      minWidth: 180,
+      field: "from",
+      headerName: "Booked Slot: From",
+      minWidth: 160,
       flex: 0.2,
       // renderCell: (params) => {
       //   return (
@@ -49,32 +55,43 @@ hours:booking.totalHours
       //   )
       // },
     },
-    { field: "amount", headerName: "Amount", minWidth: 180, flex: 0.2 },
     {
-      field: "hours",
-      headerName: "Total Hours",
-      flex: 0.1,
+      field: "to",
+      headerName: "Booked Slot: To",
       minWidth: 160,
+      flex: 0.2,
+      // renderCell: (params) => {
+      //   return (
+      //     <div className='productListItem'>
+      //       <img className='productListImg' src={params.row.img} alt='' />
+      //       {params.row.name}{' '}
+      //     </div>
+      //   )
+      // },
     },
-    // {
-    //   field: "action",
-    //   headerName: "Action",
-    //   width: 150,
-    //   renderCell: (params) => {
-    //     return (
-    //       <>
-    //         <Link to={"/product/" + params.row.id}>
-    //           <button className="productListEdit">Edit</button>
-    //         </Link>
-
-    //         <DeleteOutlineIcon
-    //           className="productListDelete"
-    //           onClick={() => handleDelete(params.row.id)}
-    //         />
-    //       </>
-    //     );
-    //   },
-    // },
+    { field: "amount", headerName: "Amount", minWidth: 90, flex: 0.1 },
+    {
+      field: "transactionid",
+      headerName: "Transaction ID",
+      flex: 0.2,
+      minWidth: 120,
+    },
+    {
+      field: "action",
+      headerName: "Action",
+      minWidth: 150,
+      renderCell: (params) => {
+        return (
+          <>
+            <MdDeleteOutline
+              className="productListDelete"
+              size="1.5rem"
+              onClick={() => handleDelete(params.row.id)}
+            />
+          </>
+        );
+      },
+    },
   ];
   return (
     <div style={{ width: "100%", backgroundColor: "#222831", height: "100vh" }}>
@@ -85,7 +102,7 @@ hours:booking.totalHours
         </div>
         <div className="productList">
           <DataGrid
-            style={{ color: "#EEEEEE" }}
+            style={{ color: "#EEEEEE",fontSize:"0.85vmax" }}
             rows={rows}
             disableSelectionOnClick
             columns={columns}
