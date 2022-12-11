@@ -5,6 +5,7 @@ import "../Dashboard.css";
 import "../Sidebar/Sidebar.css";
 import { DataGrid } from "@mui/x-data-grid";
 
+
 import { BrowserRouter as Router, Link, Route, Switch, useNavigate } from "react-router-dom";
 
 import { MdDeleteOutline } from "react-icons/md";
@@ -13,6 +14,8 @@ import Navbar from "../../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCar, getAllCarsAdmin } from "../../../Actions/adminActions";
+
+import New from "../Car/New";
 
 export default function CarList() {
   // const [data, setData] = useState(productRows);
@@ -106,7 +109,9 @@ export default function CarList() {
         </div>
         <div className="carList">
           <div className="createProduct">
-            <Link to="/admin/car/new">
+
+          {/* /admin/car/new" */}
+            <Link to="/admin/dashboard/car/new">
               <button className="productAddButton">Create</button>
             </Link>
           </div>

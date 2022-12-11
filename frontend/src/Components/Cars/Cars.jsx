@@ -20,6 +20,8 @@ import "./Cars.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getallCars, getASCcars, getDESCcars } from "../../Actions/carActions";
 import Card from "../Card/Card";
+
+
 const Cars = () => {
   const dispatch = useDispatch();
   const { cars,loading } = useSelector((state) => state.cars);
@@ -49,6 +51,7 @@ const Cars = () => {
       dispatch(getDESCcars());
     }
   };
+  
   const theme = createTheme({
     status: {
       danger: "#e53e3e",

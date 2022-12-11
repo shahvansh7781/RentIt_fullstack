@@ -16,6 +16,7 @@ import UserList from "./Components/Admin/UserList/UserList";
 import CarList from "./Components/Admin/CarList/CarList";
 import BookingList from "./Components/Admin/BookingList/BookingList";
 import EditProfile from "./Components/MyProfile/EditProfile";
+import New from "./Components/Admin/Car/New";
 
 function App() {
   
@@ -67,6 +68,9 @@ function App() {
         <Route exact path="/admin/dashboard" element={<Dashboard/>}></Route>
         <Route exact path="/admin/dashboard/users" element={<UserList/>}></Route>
         <Route exact path="/admin/dashboard/cars" element={<CarList/>}></Route>
+
+        <Route exact path="/admin/dashboard/car/new" element={<New/>}></Route>
+        
         <Route exact path="/admin/dashboard/bookings" element={<BookingList/>}></Route>
       </Routes>
     </>

@@ -260,7 +260,7 @@ const Contact = () => {
 
             <div class="contact-form-div">
               <textarea
-                placeholder="  Message"
+                placeholder=" Message"
                 name="message"
                 className="form-area"
               ></textarea>
