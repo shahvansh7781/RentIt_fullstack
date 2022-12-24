@@ -10,17 +10,20 @@ import Background from './bg.webp'
 import { Link } from 'react-router-dom'
 // import Counters from '../Counters/Counters'
 
-const textAnimation = {
-  hidden: {
-    y: 400,
-    opacity: 0,
+const textAnimation={
+
+  hidden:{
+    y:400,opacity:0
   },
-  visible: {
-    y: 0,
-    x: 0,
-    opacity: 1,
-    transition: { type: 'spring', bounce: 0.4, duration: 6 },
-  },
+  visible:{
+    y:0,
+    x:0,
+    opacity:1,
+    transition:{type:"spring",  
+        bounce:0.4,
+        duration:6
+    }
+  }
 }
 const pagesAnimation = {
   hidden: {
@@ -62,8 +65,7 @@ const About = () => {
               animate='visible'
               className='text'
             >
-              <h1 style={{ color: 'white' }}>RentIt</h1>
-              <h1 style={{ color: 'white' }}>About Us</h1>
+              <h1 style={{ color: 'white',fontWeight:'bold',fontSize:'3.5vmax'}}>About Us</h1>
             </motion.div>
           </header>
         </div>
@@ -87,7 +89,7 @@ const About = () => {
               transition={{ ...transition, duration: 2 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
-              <motion.span>About Us</motion.span>
+              <motion.span><h3>About Us </h3></motion.span>
               <br></br>
               <br></br>
               <motion.span className='head'>Welcome To RentIt</motion.span>
