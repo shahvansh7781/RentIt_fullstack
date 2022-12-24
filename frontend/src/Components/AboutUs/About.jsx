@@ -10,6 +10,7 @@ import Background from "./bg.webp";
 import { Link } from "react-router-dom";
 // import Counters from '../Counters/Counters'
 
+
 const textAnimation = {
   hidden: {
     y: 400,
@@ -21,7 +22,8 @@ const textAnimation = {
     opacity: 1,
     transition: { type: "spring", bounce: 0.4, duration: 6 },
   },
-};
+};  
+      
 const pagesAnimation = {
   hidden: {
     opacity: 0,
@@ -60,8 +62,11 @@ const About = () => {
               animate="visible"
               className="text"
             >
+
               <h1 style={{ color: "white" }}>RentIt</h1>
               <h1 style={{ color: "white" }}>About Us</h1>
+              <h1 style={{ color: 'white',fontWeight:'bold',fontSize:'3.5vmax'}}>About Us</h1>
+
             </motion.div>
           </header>
         </div>
@@ -100,6 +105,7 @@ const About = () => {
               initial={{ opacity: 0, y: 100 }}
               transition={{ ...transition, duration: 2 }}
               whileInView={{ opacity: 1, y: 0 }}
+
             > */}
             {/* <motion.span> */}
             <div style={{ fontSize: "2.5vmax",marginLeft:"8vmax" }}> About Us</div>
@@ -118,6 +124,22 @@ const About = () => {
               and the Little Blind Text should turn around and return to its
               own, safe country. A small river named Duden flows by their place
               and supplies it with the necessary regelialia. It is a
+
+            >
+              <motion.span><h3>About Us </h3></motion.span>
+              <br></br>
+              <br></br>
+              <motion.span className='head'>Welcome To RentIt</motion.span>
+              <br></br>
+              <br></br>A small river named Duden flows by their place and
+              supplies it with the necessary regelialia. It is a paradisematic
+              country, in which roasted parts of sentences fly into your mouth.
+              On her way she met a copy. The copy warned the Little Blind Text,
+              that where it came from it would have been rewritten a thousand
+              times and everything that was left from its origin would be the
+              word "and" and the Little Blind Text should turn around and return
+              to its own, safe country. A small river named Duden flows by their
+              place and supplies it with the necessary regelialia. It is a
               paradisematic country, in which roasted parts of sentences fly
               into your mouth.
             </div>

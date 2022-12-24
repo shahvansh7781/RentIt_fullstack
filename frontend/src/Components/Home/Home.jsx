@@ -4,6 +4,7 @@ import Simpleslider from "./Slider/Slider";
 import Featured from "./Featured/Featured";
 import Footer from "../Footer/Footer";
 import { motion } from "framer-motion";
+
 import Main from "../Services/Main";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
