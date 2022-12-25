@@ -10,6 +10,7 @@ import Background from "./bg.webp";
 import { Link } from "react-router-dom";
 // import Counters from '../Counters/Counters'
 
+
 const textAnimation = {
   hidden: {
     y: 400,
@@ -21,7 +22,8 @@ const textAnimation = {
     opacity: 1,
     transition: { type: "spring", bounce: 0.4, duration: 6 },
   },
-};
+};  
+      
 const pagesAnimation = {
   hidden: {
     opacity: 0,
@@ -100,6 +102,7 @@ const About = () => {
               initial={{ opacity: 0, y: 100 }}
               transition={{ ...transition, duration: 2 }}
               whileInView={{ opacity: 1, y: 0 }}
+
             > */}
             {/* <motion.span> */}
             <div style={{ fontSize: "2.5vmax",marginLeft:"8vmax" }}> About Us</div>
@@ -117,11 +120,9 @@ const About = () => {
               everything that was left from its origin would be the word "and"
               and the Little Blind Text should turn around and return to its
               own, safe country. A small river named Duden flows by their place
-              and supplies it with the necessary regelialia. It is a
-              paradisematic country, in which roasted parts of sentences fly
-              into your mouth.
+              and supplies it with the necessary regelialia. 
             </div>
-            <div style={{ marginTop: "0.6vmax",marginLeft:"8vmax" }}>
+            <div style={{ marginTop: "0.8vmax",marginLeft:"8vmax" }}>
               <Link to="/cars" className="carousel-button">
                 Book A Car
               </Link>

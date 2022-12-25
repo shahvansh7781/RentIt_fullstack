@@ -123,6 +123,7 @@ body {
 }
 
 .form-area {
+  padding: 0.35rem;
   width: 100%;
   border: 1.5px solid #c7c7c7;
   border-radius: 5px;

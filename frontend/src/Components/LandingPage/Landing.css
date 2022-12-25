@@ -1,8 +1,10 @@
 .main-content {
   margin-top: 80px;
   display: flex;
-  justify-content: center;
-  gap: 7.3rem;
+  /* justify-content: center; */
+  justify-content: space-evenly;
+  padding: 1.1rem;
+  /* gap: 7.3rem; */
 }
 .inner-content {
   display: flex;
@@ -58,8 +60,12 @@
   color: white;
 }
 
-@media (max-width: 530px) {
-  .all-content {
+
+
+@media (max-width:530px){
+
+  .all-content{
+
     height: 100%;
   }
   .main-content {
