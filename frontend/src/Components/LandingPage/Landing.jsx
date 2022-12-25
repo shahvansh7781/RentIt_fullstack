@@ -1,80 +1,69 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import rentside from "../../images/rent_side.png"
+// import rentside from "../../images/rent_side.png"
 import AnimateImg from "../AnimateImg/AnimateImg"
+import rentside from "../../images/rent_side.png";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
-import "./Landing.css"
+import "./Landing.css";
 
- 
 // initial={"offscreen"}
 // whileInView={"onscreen"}
 // viewport={{once:false,amount:0.7}}
 // transition={{staggerChildren:0.5}}
 
-
-const navAnimation={
-
-  hidden:{
-    x:1400,
-    opacity:0
-  },
-  
-  visible:{
-    opacity:1,
-    x:0,
-    y:0,
-    duration:5
-  }
-}
-
-const textAnimation={
-
-  hidden:{
-    y:400,opacity:0
-  },
-  visible:{
-    y:0,
-    opacity:1,
-    transition:{type:"spring",  
-        bounce:0.4,
-        duration:5
-    }
-  }
-
-}
-
-const pagesAnimation = {
+const navAnimation = {
   hidden: {
+    x: 1400,
     opacity: 0,
-    x:-300, 
-    y:0
   },
 
   visible: {
     opacity: 1,
     x: 0,
-    y:0,
+    y: 0,
+    duration: 5,
+  },
+};
+
+const textAnimation = {
+  hidden: {
+    y: 400,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "spring", bounce: 0.4, duration: 5 },
+  },
+};
+
+const pagesAnimation = {
+  hidden: {
+    opacity: 0,
+    x: -300,
+    y: 0,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
 
     transition: { delay: 0.3, duration: 4, type: "spring" },
   },
 };
 
-
 const Landing = () => {
   return (
-    <motion.div 
+    <motion.div
       variants={pagesAnimation}
       initial="hidden"
       animate="visible"
-      className="all-content">
-      
-      <div
-        variants={navAnimation}
-        inherit="hidden"
-        animate="visible"
-      > 
-        <Navbar/>
+      className="all-content"
+    >
+      <div variants={navAnimation} inherit="hidden" animate="visible">
+        <Navbar />
       </div>
 
       <div className="main-content">
@@ -107,28 +96,15 @@ const Landing = () => {
             </motion.p>
         </div>
         <div className="img-div">
-            <motion.div
-              // initial={{ opacity: 0, scale: 0.5 }}
-              // animate={{ opacity: 1, scale: 1 ,rotate:360}}
-              // transition={{
-              //   default: {
-              //     duration: 5.5,
-              //     ease: [0, 0.71, 0.2, 1.04]
-              //   },
-              //   scale: {
-              //     type: "spring",
-              //     damping: 2,
-              //     stiffness: 50,
-              //     restDelta: 0.001
-              //   }
-              // }}
-              >
+            <motion.div>
                 <AnimateImg></AnimateImg>
               {/* <img src={rentside} alt="" srcset="" className="side-img" /> */}
 
               
             </motion.div>
+    
         </div>
+        
       </div>
     </motion.div>
   );

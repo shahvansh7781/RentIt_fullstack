@@ -14,10 +14,11 @@ import moment from "moment";
 import { DatePicker, ConfigProvider, Modal, Button } from "antd";
 import { useState } from "react";
 import { newBooking } from "../../Actions/bookingActions";
+import StripeCheckout from "react-stripe-checkout";
 const { RangePicker } = DatePicker;
 const CarDetails = () => {
   const params = useParams();
-  console.log(params);
+  // console.log(params);
   const dispatch = useDispatch();
   const { car, loading } = useSelector((state) => state.cars);
   // const { error,loadingb } = useSelector((state) => state.booking);
@@ -86,6 +87,14 @@ const CarDetails = () => {
   // };
   const handleBooking = () => {
     dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent));
+    setfrom("");
+    setto("");
+    settotalHours("");
+    setavailibility(true);
+  };
+  const onToken = (token) => {
+    // console.log(token);
+    dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent,token));
     setfrom("");
     setto("");
     settotalHours("");
@@ -236,8 +245,9 @@ const CarDetails = () => {
                   )}
                 </>
               )}
-            </div>
-          
+            
+            
+          </div>
         </>
       )}
     </>
