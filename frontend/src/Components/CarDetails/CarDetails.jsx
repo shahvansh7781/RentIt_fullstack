@@ -85,16 +85,18 @@ const CarDetails = () => {
   //     alert("Available");
   //   }
   // };
-  const handleBooking = () => {
-    dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent));
-    setfrom("");
-    setto("");
-    settotalHours("");
-    setavailibility(true);
-  };
+  // const handleBooking = () => {
+  //   dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent));
+  //   setfrom("");
+  //   setto("");
+  //   settotalHours("");
+  //   setavailibility(true);
+  // };
   const onToken = (token) => {
     // console.log(token);
-    dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent,token));
+    dispatch(
+      newBooking(params.id, bookedSlot, totalHours, totalHours * rent, token)
+    );
     setfrom("");
     setto("");
     settotalHours("");
@@ -165,88 +167,94 @@ const CarDetails = () => {
               </h3>
             </div>
           </div>
-          
-            <div className="car-date">
-              <div className="car-date-text">
-                Select your journey 
-              </div>
-              <ConfigProvider
-                theme={{
-                  token: {
-                    colorPrimary: "#3591ca",
-                  },
-                }}
-              >
-                <RangePicker
-                  className="car-range-picker"
-                  showTime
-                  format="DD/MM/YYYY HH:mm"
-                  onChange={selectedtimeSlots}
-                />
-              </ConfigProvider>
-              <button onClick={showModal} className="car-book-btn" >BOOK NOW</button>
-              <br />
-              {from && to && (
-                <>
-                  {/* <button onClick={handleAvailibility}>
+
+          <div className="car-date">
+            <div className="car-date-text">Select your journey</div>
+            <ConfigProvider
+              theme={{
+                token: {
+                  colorPrimary: "#3591ca",
+                },
+              }}
+            >
+              <RangePicker
+                className="car-range-picker"
+                showTime
+                format="DD/MM/YYYY HH:mm"
+                onChange={selectedtimeSlots}
+              />
+            </ConfigProvider>
+            <button onClick={showModal} className="car-book-btn">
+              BOOK NOW
+            </button>
+            <br />
+            {from && to && (
+              <>
+                {/* <button onClick={handleAvailibility}>
                   Check for Availibility
                 </button> */}
-                  {availibility && availibility ? (
-                    <Modal
-                      className="car-modal"
-                      style={{}}
-                      open={open}
-                      title="RentIt"
-                      onOk={handleOk}
-                      onCancel={handleCancel}
-                      width={400}
-                      bodyStyle={{
-                        padding: "20px",
-                        textAlign: "center",
-                        fontStyle: "oblique",
-                        fontFamily: "fantasy",
-                      }}
-                      centered
-                      maskStyle={{
-                        background:
-                        "rgba(0,0,0,0.56)",
-                        backdropFilter : " blur(8px)"
-                      }}
-                      footer={[
-                        <Button key="back" onClick={handleCancel} size={size}>
-                          Return
-                        </Button>,
-                        <Button size={size}>
-                          <Link
+                {availibility && availibility ? (
+                  <Modal
+                    className="car-modal"
+                    style={{}}
+                    open={open}
+                    title="RentIt"
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                    width={400}
+                    bodyStyle={{
+                      padding: "20px",
+                      textAlign: "center",
+                      fontStyle: "oblique",
+                      fontFamily: "fantasy",
+                    }}
+                    centered
+                    maskStyle={{
+                      background: "rgba(0,0,0,0.56)",
+                      backdropFilter: " blur(8px)",
+                    }}
+                    footer={[
+                      <Button key="back" onClick={handleCancel} size={size}>
+                        Return
+                      </Button>,
+                      <Button size={size}>
+                        {/* <Link
                             
                             onClick={handleBooking}
                           >
                             DONE
-                          </Link>
-                        </Button>,
-                      ]}
-                    >
-                      <div className="car-book-details">
-                        <h4 style={{ fontWeight: "600" }}>
-                          Total Hours: {totalHours}
-                        </h4>
-                        <h4 style={{ fontWeight: "600" }}>
-                          Total Amount: {totalHours * rent} Rs
-                        </h4>
-                        {/* <Link className="car-book-btn" onClick={handleBooking}>
+                          </Link> */}
+
+                        <StripeCheckout
+                          token={onToken}
+                          currency="inr"
+                          amount={totalHours * rent * 100}
+                          stripeKey="pk_test_51MD4fISAnNDrfpjkKm2ORcKYxxnwzKF0wW8rWukzWaGzLOAXGTlnF7ktZH8Cwz31X4el9BrYvmbZJAOWaSM1JJOP00wgOCnCqT"
+                        >
+                          <Link>Book Now</Link>
+                        </StripeCheckout>
+                      </Button>,
+                    ]}
+                  >
+                    <div className="car-book-details">
+                      <h4 style={{ fontWeight: "600" }}>
+                        Total Hours: {totalHours}
+                      </h4>
+                      <h4 style={{ fontWeight: "600" }}>
+                        Total Amount: {totalHours * rent} Rs
+                      </h4>
+                      {/* <Link className="car-book-btn" onClick={handleBooking}>
                         Book Now
                       </Link> */}
-                      </div>
-                    </Modal>
-                  ) : (
-                    <>
-                      <h4>Not Available</h4>
-                    </>
-                  )}
-                </>
-              )}
-            
-            
+                    </div>
+                  </Modal>
+                ) : (
+                  <>
+                    <h4>Not Available</h4>
+                  </>
+                )}
+              </>
+            )}
           </div>
         </>
       )}
