@@ -130,5 +130,6 @@ export const createCar =
         type: "createCarFailure",
         payload: error.response.data.message,
       });
+      alert(error.response.data.message);
     }
   };
