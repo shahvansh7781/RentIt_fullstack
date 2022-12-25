@@ -60,8 +60,8 @@ const About = () => {
               animate="visible"
               className="text"
             >
-              <h1 style={{ color: "white" }}>RentIt</h1>
-              <h1 style={{ color: "white" }}>About Us</h1>
+              <h1 style={{ color: "white",fontSize:"2.7vmax" }}>RentIt</h1>
+              <h1 style={{ color: "white",fontSize:"2.7vmax" }}>About Us</h1>
             </motion.div>
           </header>
         </div>
@@ -108,7 +108,7 @@ const About = () => {
             {/* <motion.span className="head"> */}
             <div style={{ fontSize: "1.7vmax",marginLeft:"8vmax" }}> Welcome To RentIt</div>
             {/* </motion.span> */}
-            <div style={{ fontSize: "1vmax",marginLeft:"8vmax" }}>
+            <div style={{ fontSize: "0.9vmax",marginLeft:"8vmax" }}>
               A small river named Duden flows by their place and supplies it
               with the necessary regelialia. It is a paradisematic country, in
               which roasted parts of sentences fly into your mouth. On her way
@@ -121,7 +121,7 @@ const About = () => {
               paradisematic country, in which roasted parts of sentences fly
               into your mouth.
             </div>
-            <div style={{ marginTop: "16px",marginLeft:"8vmax" }}>
+            <div style={{ marginTop: "0.6vmax",marginLeft:"8vmax" }}>
               <Link to="/cars" className="carousel-button">
                 Book A Car
               </Link>
