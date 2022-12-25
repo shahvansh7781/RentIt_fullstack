@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import rentside from "../../images/rent_side.png"
-import AnimateImg from "../AnimateImg/AnimateImg"
+import AnimateImg from "../AnimateImg/AnimateImg";
 import rentside from "../../images/rent_side.png";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
@@ -68,43 +68,41 @@ const Landing = () => {
 
       <div className="main-content">
         <div className="inner-content">
-
-            <motion.h1 
-              variants={textAnimation}
-              initial="hidden"
-              animate="visible"
-              
-              >Welcome to <span className="logo-name" style={{color:"#ffffff", fontFamily: "Poppins"}}> RentIT </span></motion.h1>
-            <motion.p
-               variants={textAnimation}
-               initial="hidden"
-               animate="visible"
-            
-            > Enjoy your journey with rentIt
-            <br /> Booking your vacation with rentIt means you have
-            around-the-clock support from day one. <br/> Our team of specialists are
-            here to guide you through all of your travel options, answer
-            questions, and find you the best deals.At RentIt we get it right, or
-            we will make it right.
-            </motion.p>
-            <motion.p
-              variants={textAnimation}
-              initial="hidden"
-              animate="visible"
+          <motion.h1
+            variants={textAnimation}
+            initial="hidden"
+            animate="visible"
+          >
+            Welcome to{" "}
+            <span
+              className="logo-name"
+              style={{ color: "#ffffff", fontFamily: "Poppins" }}
             >
-              <Link className="mylink1" to="/home">Get Started</Link>
-            </motion.p>
+              {" "}
+              RentIT{" "}
+            </span>
+          </motion.h1>
+          <motion.p variants={textAnimation} initial="hidden" animate="visible">
+            {" "}
+            Enjoy your journey with rentIt
+            <br /> Booking your vacation with rentIt means you have
+            around-the-clock support from day one. <br /> Our team of
+            specialists are here to guide you through all of your travel
+            options, answer questions, and find you the best deals.At RentIt we
+            get it right, or we will make it right.
+          </motion.p>
+          <motion.p variants={textAnimation} initial="hidden" animate="visible">
+            <Link className="mylink1" to="/home">
+              Get Started
+            </Link>
+          </motion.p>
         </div>
         <div className="img-div">
-            <motion.div>
-                <AnimateImg></AnimateImg>
-              {/* <img src={rentside} alt="" srcset="" className="side-img" /> */}
-
-              
-            </motion.div>
-    
+          <motion.div>
+            <AnimateImg></AnimateImg>
+            {/* <img src={rentside} alt="" srcset="" className="side-img" /> */}
+          </motion.div>
         </div>
-        
       </div>
     </motion.div>
   );

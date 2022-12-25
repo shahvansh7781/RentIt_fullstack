@@ -231,7 +231,7 @@ const CarDetails = () => {
                           amount={totalHours * rent * 100}
                           stripeKey="pk_test_51MD4fISAnNDrfpjkKm2ORcKYxxnwzKF0wW8rWukzWaGzLOAXGTlnF7ktZH8Cwz31X4el9BrYvmbZJAOWaSM1JJOP00wgOCnCqT"
                         >
-                          <Link>Book Now</Link>
+                          <Link>CONFIRM</Link>
                         </StripeCheckout>
                       </Button>,
                     ]}
