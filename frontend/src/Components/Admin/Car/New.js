@@ -9,21 +9,42 @@ import { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 import create_car from "../../../images/create_car.png";
+import { useDispatch } from "react-redux";
+import { createCar } from "../../../Actions/adminActions";
 
 const New = () => {
-  const [myCar, setMyCar] = useState("Company");
-
-  const handleChange = (event) => {
-    setMyCar(event.target.value);
-  };
-
-  const [state, setState] = React.useState({ status: true });
+  const dispatch = useDispatch();
+  const [carDetails, setcarDetails] = React.useState({
+    title: "",
+    description: "",
+    rent: "",
+    noPlate: "",
+    company: "",
+    model: "",
+    colour: "",
+    seats: "",
+    gear: "",
+    fuelType: "",
+    gps: "",
+    usb: "",
+    radio: "",
+    parkingSensor: "",
+  });
 
   // Change State Function
-  const handleChange2 = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setcarDetails((precarDetails) => {
+      return {
+        ...precarDetails,
+        [name]: value,
+      };
+    });
   };
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+ dispatch(createCar(carDetails.title,carDetails.description,carDetails.rent,carDetails.noPlate,carDetails.company,carDetails.model,carDetails.colour,carDetails.seats,carDetails.gear,carDetails.fuelType,carDetails.gps,carDetails.usb,carDetails.radio,carDetails.parkingSensor))
+  };
   return (
     <div>
       <div style={{ width: "100%", backgroundColor: "#222831" }}>
@@ -44,12 +65,18 @@ const New = () => {
         </div>
 
         <div className="create-info-div">
-          <form className="create-car-form">
+          <form
+            className="create-car-form"
+            onSubmit={handleSubmit}
+            method="post"
+          >
             <div className="new-car-data">
               <input
                 type="text"
                 name="title"
                 // value={"title"}
+                value={carDetails.title}
+                onChange={changeHandler}
                 className="car-input"
                 placeholder="Title"
                 required
@@ -58,31 +85,45 @@ const New = () => {
 
             <div className="new-car-data">
               <input
-                type="number"
+                type="text"
                 name="rent"
                 // value={"rent"}
+                value={carDetails.rent}
+                onChange={changeHandler}
                 className="car-input"
                 placeholder="Rent"
                 required
               />
             </div>
 
-            <div className="new-car-data">
-              <input
-                type="text"
+            {/* <div className="new-car-data">
+              Featured:
+             True <input
+                type="radio"
                 name="feature"
                 // value={"rent"}
-                className="car-input"
-                placeholder="Feature"
+                value="true"
+                className=""
+                placeholder="Featured"
                 required
               />
-            </div>
+              False <input
+                type="radio"
+                name="feature"
+                // value={"rent"}
+                value="true"
+                className=""
+                placeholder="Featured"
+                required
+              />
+            </div> */}
 
             <div className="new-car-data">
               <textarea
                 placeholder="Description"
                 name="description"
-                // value={"description"}
+                value={carDetails.description}
+                onChange={changeHandler}
                 className="car-input car-input-area"
               ></textarea>
             </div>
@@ -90,8 +131,9 @@ const New = () => {
             <div className="joint-div">
               <div className="new-car-feat-data">
                 <select
-                  value={myCar}
-                  onChange={handleChange}
+                  name="company"
+                  value={carDetails.company}
+                  onChange={changeHandler}
                   className="car-company-option"
                 >
                   <option className="car-company" value="company">
@@ -100,7 +142,7 @@ const New = () => {
                   <option className="car-company" value="Tata">
                     Tata
                   </option>
-                  <option className="car-company" value="Hyundia">
+                  <option className="car-company" value="Hyundai">
                     Hyundai
                   </option>
                   <option className="car-company" value="Maruti Suzuki">
@@ -119,7 +161,8 @@ const New = () => {
                 <input
                   type="text"
                   name="noPlate"
-                  // value={"noPlate"}
+                  value={carDetails.noPlate}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="No Plate"
                   required
@@ -130,7 +173,8 @@ const New = () => {
                 <input
                   type="text"
                   name="model"
-                  // value={"model"}
+                  value={carDetails.model}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="Model"
                   required
@@ -141,18 +185,30 @@ const New = () => {
                 <input
                   type="text"
                   name="colour"
-                  // value={"colour"}
+                  value={carDetails.colour}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="Colour"
                   required
                 />
               </div>
-
+              <div className="new-car-feat-data">
+                <input
+                  type="text"
+                  name="seats"
+                  value={carDetails.seats}
+                  onChange={changeHandler}
+                  className="joint-div-car-input"
+                  placeholder="Seats"
+                  required
+                />
+              </div>
               <div className="new-car-feat-data">
                 <input
                   type="text"
                   name="gear"
-                  // value={"gear"}
+                  value={carDetails.gear}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="Gear"
                   required
@@ -162,15 +218,16 @@ const New = () => {
               <div className="new-car-feat-data">
                 <input
                   type="text"
-                  name="fuleType"
-                  // value={"fuleType"}
+                  name="fuelType"
+                  value={carDetails.fuelType}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
-                  placeholder="Fule Type"
+                  placeholder="Fuel Type"
                   required
                 />
               </div>
 
-              <div className="new-car-feat-data">
+              {/* <div className="new-car-feat-data">
                 <input
                   type="text"
                   name="airConditioner"
@@ -179,13 +236,14 @@ const New = () => {
                   placeholder="Air Conditioner"
                   required
                 />
-              </div>
+              </div> */}
 
               <div className="new-car-feat-data">
                 <input
                   type="text"
                   name="gps"
-                  // value={"airConditioner"}
+                  value={carDetails.gps}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="GPS"
                   required
@@ -196,7 +254,8 @@ const New = () => {
                 <input
                   type="text"
                   name="usb"
-                  // value={"airConditioner"}
+                  value={carDetails.usb}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="USB"
                   required
@@ -207,7 +266,8 @@ const New = () => {
                 <input
                   type="text"
                   name="radio"
-                  // value={"airConditioner"}
+                  value={carDetails.radio}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="Radio"
                   required
@@ -218,7 +278,8 @@ const New = () => {
                 <input
                   type="text"
                   name="parkingSensor"
-                  // value={"airConditioner"}
+                  value={carDetails.parkingSensor}
+                  onChange={changeHandler}
                   className="joint-div-car-input"
                   placeholder="Parking Sensor"
                   required
