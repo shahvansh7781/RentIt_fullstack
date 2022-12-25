@@ -115,6 +115,7 @@ const Contact = () => {
   };
 
   return (
+    
     <div
       variants={pagesAnimation}
       initial="hidden"
@@ -267,7 +268,7 @@ const Contact = () => {
         variants={mapAnimation}
         initial="hidden"
         whileInView={"visible"}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.240}}
         className="map"
       >
         {/*MAP  */}
