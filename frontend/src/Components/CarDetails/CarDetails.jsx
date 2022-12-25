@@ -15,6 +15,7 @@ import { DatePicker, ConfigProvider, Modal, Button } from "antd";
 import { useState } from "react";
 import { newBooking } from "../../Actions/bookingActions";
 import StripeCheckout from "react-stripe-checkout";
+import Footer from "../Footer/Footer";
 const { RangePicker } = DatePicker;
 const CarDetails = () => {
   const params = useParams();
@@ -107,7 +108,7 @@ const CarDetails = () => {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <>
+        <div>
           <div style={{ backgroundColor: "#222831" }}>
             <Navbar />
           </div>
@@ -256,7 +257,7 @@ const CarDetails = () => {
               </>
             )}
           </div>
-        </>
+        </div>
       )}
     </>
   );
