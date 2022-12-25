@@ -54,29 +54,18 @@ const About = () => {
         >
           <Navbar />
           <header>
-          <motion.div
-          variants={textAnimation}
-          initial="hidden"
-          animate="visible"
-          className="aboutus-intro"
-        >
-         
-          <h2>About Us</h2>
-          <br></br>
-          <motion.p
-            variants={textAnimation}
-            initial="hidden"
-            animate="visible"
-            className="text"
-          >
-            <br></br>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda 
-            <br></br>
-            iste facilis quos impedit fuga nobis modi debitis laboriosam velit
-            reiciendis quisquam alias corporis, maxime enim, optio ab dolorum
-            sequi qui.
-          </motion.p>
-        </motion.div>
+            <motion.div
+              variants={textAnimation}
+              initial="hidden"
+              animate="visible"
+              className="text"
+            >
+
+              <h1 style={{ color: "white" }}>RentIt</h1>
+              <h1 style={{ color: "white" }}>About Us</h1>
+              <h1 style={{ color: 'white',fontWeight:'bold',fontSize:'3.5vmax'}}>About Us</h1>
+
+            </motion.div>
           </header>
         </div>
       </div>
@@ -110,7 +99,7 @@ const About = () => {
             
             <div style={{ }}> Welcome To RentIt</div>
             {/* </motion.span> */}
-            <div>
+            <div style={{ fontSize: "1vmax",marginLeft:"8vmax" }}>
               A small river named Duden flows by their place and supplies it
               with the necessary regelialia. It is a paradisematic country, in
               which roasted parts of sentences fly into your mouth. On her way
@@ -121,9 +110,25 @@ const About = () => {
               own, safe country. A small river named Duden flows by their place
               and supplies it with the necessary regelialia. It is a
 
+            >
+              <motion.span><h3>About Us </h3></motion.span>
+              <br></br>
+              <br></br>
+              <motion.span className='head'>Welcome To RentIt</motion.span>
+              <br></br>
+              <br></br>A small river named Duden flows by their place and
+              supplies it with the necessary regelialia. It is a paradisematic
+              country, in which roasted parts of sentences fly into your mouth.
+              On her way she met a copy. The copy warned the Little Blind Text,
+              that where it came from it would have been rewritten a thousand
+              times and everything that was left from its origin would be the
+              word "and" and the Little Blind Text should turn around and return
+              to its own, safe country. A small river named Duden flows by their
+              place and supplies it with the necessary regelialia. It is a
+              paradisematic country, in which roasted parts of sentences fly
+              into your mouth.
             </div>
-            
-            <div style={{}}>
+            <div style={{ marginTop: "16px",marginLeft:"8vmax" }}>
               <Link to="/cars" className="carousel-button">
                 Book A Car
               </Link>
