@@ -37,3 +37,9 @@ width: 100%;;
 
     margin: 2.5vh;
   }
+  /* .css-pdct74-MuiTablePagination-selectLabel{
+    margin-top: 10px;
+  } */
+  .MuiTablePagination-displayedRows{
+    margin-top: 10px;
+  } 

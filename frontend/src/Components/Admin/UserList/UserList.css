@@ -66,3 +66,7 @@
  .MuiToolbar-root{
   padding: 10px;
  }
+
+ .MuiTablePagination-selectLabel{
+  margin-top: 10px;
+ }
