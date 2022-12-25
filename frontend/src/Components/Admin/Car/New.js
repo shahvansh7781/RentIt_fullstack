@@ -72,6 +72,18 @@ const New = () =>{
                     required/>
             </div>
 
+            
+            <div className='new-car-data'>
+              <input
+                    type="text"
+                    name="feature"
+                    // value={"rent"}
+                    className="car-input"
+                    placeholder="Feature"
+                    required/>
+            </div>
+
+
             <div className='new-car-data'>
 
             <textarea
