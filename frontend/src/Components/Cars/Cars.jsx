@@ -21,6 +21,7 @@ import "./Cars.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getallCars, getASCcars, getDESCcars } from "../../Actions/carActions";
 import Card from "../Card/Card";
+import Footer from "../Footer/Footer";
 
 
 const Cars = () => {
@@ -182,6 +183,8 @@ const Cars = () => {
           </div>
         </div>
       )}
+      <br />
+      <Footer/>
     </>
   );
 };
