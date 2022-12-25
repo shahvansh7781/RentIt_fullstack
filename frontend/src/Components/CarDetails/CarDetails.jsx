@@ -52,13 +52,15 @@ const CarDetails = () => {
   }, [dispatch, params.id]);
 
   const selectedtimeSlots = (values) => {
-    setfrom(moment(values[0]).format("MMM DD YYYY HH:mm"));
-    setto(moment(values[1]).format("MMM DD YYYY HH:mm"));
+    // console.log(moment(values[0].$d).format("MMM DD YYYY HH:mm"));
+    // console.log(moment(values[0]).format("MMM DD YYYY HH:mm"));
+    setfrom(moment(values[0].$d).format("MMM DD YYYY HH:mm"));
+    setto(moment(values[1].$d).format("MMM DD YYYY HH:mm"));
     settotalHours(values[1].diff(values[0], "hours"));
     setavailibility(true);
 
-    const sFrom = moment(values[0]);
-    const sTo = moment(values[1]);
+    const sFrom = moment(values[0].$d);
+    const sTo = moment(values[1].$d);
     if (car.bookedSlot.length === 0) {
       setavailibility(true);
     } else {
@@ -174,7 +176,7 @@ const CarDetails = () => {
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary: "#3591ca",
+                  colorPrimary: "#222831",
                 },
               }}
             >
@@ -251,7 +253,35 @@ const CarDetails = () => {
                   </Modal>
                 ) : (
                   <>
-                    <h4>Not Available</h4>
+                    {/* <h4>Not Available</h4> */}
+                    <Modal
+                    className="car-modal"
+                    style={{}}
+                    open={open}
+                    title="RentIt"
+                    onCancel={handleCancel}
+                    width={400}
+                    bodyStyle={{
+                      padding: "20px",
+                      textAlign: "center",
+                      fontStyle: "oblique",
+                      fontFamily: "fantasy",
+                    }}
+                    centered
+                    maskStyle={{
+                      background: "rgba(0,0,0,0.56)",
+                      backdropFilter: " blur(8px)",
+                    }}
+                    footer={[
+                      <Button key="back" onClick={handleCancel} size={size}>
+                        Return
+                      </Button>
+                    ]}
+                  >
+                    <div className="car-book-details">
+                      <h4>Not available</h4>
+                    </div>
+                  </Modal>
                   </>
                 )}
               </>

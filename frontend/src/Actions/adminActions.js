@@ -125,6 +125,7 @@ export const createCar =
         config
       );
       dispatch({ type: "createCarSuccess", payload: data.car });
+      alert("Car Created Successfully");
     } catch (error) {
       dispatch({
         type: "createCarFailure",

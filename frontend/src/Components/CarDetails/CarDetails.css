@@ -43,7 +43,7 @@
 }
 
 .car-date {
-  background: #3591ca;
+  background: #222831;
   width: 100%;
 
   padding: 20px;
@@ -106,6 +106,7 @@
   background: #3591ca;
   color: #efeff3;
   border-radius: 7px;
-  padding: 7px;
-  border: 3px solid #efeff3;
+  padding: 1vmax;
+  border: none;
+  /* border: 3px solid #efeff3; */
 }
