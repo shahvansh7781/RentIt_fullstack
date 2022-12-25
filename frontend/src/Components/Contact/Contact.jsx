@@ -200,7 +200,7 @@ const Contact = () => {
             whileInView={"visible"}
             viewport={{ once: false, amount: 0.3 }}
             className="contact-info"
-          >
+          >x
             <span>
               <i className="fas fa-map-marker-alt"></i>
             </span>
