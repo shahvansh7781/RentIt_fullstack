@@ -66,13 +66,13 @@ const CarDetails = () => {
   //     alert("Available");
   //   }
   // };
-  const handleBooking = () => {
-    dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent));
-    setfrom("");
-    setto("");
-    settotalHours("");
-    setavailibility(true);
-  };
+  // const handleBooking = () => {
+  //   dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent));
+  //   setfrom("");
+  //   setto("");
+  //   settotalHours("");
+  //   setavailibility(true);
+  // };
   const onToken = (token) => {
     // console.log(token);
     dispatch(newBooking(params.id, bookedSlot, totalHours, totalHours * rent,token));
