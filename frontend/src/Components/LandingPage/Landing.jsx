@@ -77,13 +77,14 @@ const Landing = () => {
               
               >Welcome to <span className="logo-name" style={{color:"#ffffff", fontFamily: "Poppins"}}> RentIT </span></motion.h1>
             <motion.p
+            style={{width:"600px" , fontSize : "1.1vmax" , fontWeight:"500"}}
                variants={textAnimation}
                initial="hidden"
                animate="visible"
             
-            > Enjoy your journey with rentIt
-            <br /> Booking your vacation with rentIt means you have
-            around-the-clock support from day one. <br/> Our team of specialists are
+            > Enjoy your journey with RentIt
+            <br /> <br /> Booking your vacation with rentIt means you have
+            around-the-clock support from day one. <br/> <br /> Our team of specialists are
             here to guide you through all of your travel options, answer
             questions, and find you the best deals.At RentIt we get it right, or
             we will make it right.
