@@ -182,8 +182,9 @@ const Cars = () => {
             </div>
           </div>
         </div>
+        
       )}
-      <br />
+
       <Footer/>
     </>
   );

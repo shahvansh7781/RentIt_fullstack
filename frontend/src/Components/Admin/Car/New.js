@@ -56,6 +56,7 @@ const New = () => {
           <SideBar />
         </div>
 
+      
         <div className="img-container">
           <div className="heading">
             <h2>Create A New Car</h2>

@@ -85,6 +85,7 @@ const EditProfile = () => {
             variants={opacityVariants}
             initial="hidden"
             whileInView={"visible"}
+            style={{fontFamily:"cursive"}}
             >My Profile</h1>
         </div>
 
@@ -119,12 +120,12 @@ const EditProfile = () => {
 
                     <div>
                       <div className='field-label'><span>User Name</span></div>
-                      <div className='field-value'><span>User Name</span></div>
+                      <div className='field-value'><span>MS Dhoni</span></div>
                     </div>
 
                     <div>
                       <div className='field-label'><span>Email</span></div>
-                      <div className='field-value'><span>User Mail</span></div>
+                      <div className='field-value'><span>msd123@gmail.com</span></div>
                     </div>                   
                   
                   </div>
@@ -200,7 +201,7 @@ const EditProfile = () => {
                 Save Change
               </motion.button>
 
-              <NavLink  to="/home">
+              <NavLink  className={"back-home"} to="/home">
                   <div className='back-to-home'  
                   >
                       <h4  

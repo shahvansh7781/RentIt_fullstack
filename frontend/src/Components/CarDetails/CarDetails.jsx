@@ -16,6 +16,7 @@ import { useState } from "react";
 import { newBooking } from "../../Actions/bookingActions";
 import StripeCheckout from "react-stripe-checkout";
 import Footer from "../Footer/Footer";
+import { Margin } from "@mui/icons-material";
 const { RangePicker } = DatePicker;
 const CarDetails = () => {
   const params = useParams();
@@ -165,7 +166,7 @@ const CarDetails = () => {
                   {car && car.features.parkingSensor}
                 </div>
               </div>
-              <h3 className="car-rent" style={{ fontSize: "1.5vmax" }}>
+              <h3 className="car-rent" style={{ fontSize: "1.5vmax"}}>
                 ₹{rent}/hr
               </h3>
             </div>
@@ -187,6 +188,7 @@ const CarDetails = () => {
                 onChange={selectedtimeSlots}
               />
             </ConfigProvider>
+            
             <button onClick={showModal} className="car-book-btn">
               BOOK NOW
             </button>
@@ -220,7 +222,7 @@ const CarDetails = () => {
                       <Button key="back" onClick={handleCancel} size={size}>
                         Return
                       </Button>,
-                      <Button size={size}>
+                      <Button size={size} className="book-now-car">
                         {/* <Link
                             
                             onClick={handleBooking}
